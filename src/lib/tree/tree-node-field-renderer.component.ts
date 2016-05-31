@@ -9,16 +9,15 @@ export const FIELD_NAME = "FIELD_NAME";
 })
 export class TreeNodeFieldRenderer {
   @Input() node: TreeNode;
-  private config : any;
 
-  constructor(@Inject(FIELD_NAME) private fieldName: string){
+  constructor( @Inject(FIELD_NAME) private fieldName: string) {
   }
 
   ngOnInit() {
-      console.log('hello `Tree node Name renderer` component ' + this.node.data[this.fieldName] + ' '+ (this.node.parent ? this.node.parent.data[this.fieldName] : "null"));
+    console.log('hello `Tree node Name renderer` component ' + this.node.data[this.fieldName] + ' ' + (this.node.parent ? this.node.parent.data[this.fieldName] : "null"));
   }
 
-  toggle(){
+  toggle() {
     this.node.toggle();
   }
 }

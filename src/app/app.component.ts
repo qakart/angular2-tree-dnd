@@ -3,7 +3,7 @@
  */
 import { Component, ViewEncapsulation, provide } from '@angular/core';
 
-import {TreeService, TREE_SERVICE, DefaultTreeService, TreeNode, FIELD_NAME} from './tree/angular-tree-dnd';
+import {TreeService, TREE_SERVICE, DefaultTreeService, TreeNode, FIELD_NAME} from '../lib/angular-tree-dnd';
 
 /*
  * App Component

@@ -1,5 +1,5 @@
 import {OpaqueToken, Type} from 'angular2/core';
-import {TreeNode} from './angular-tree-dnd'
+import {TreeNode} from './../angular-tree-dnd'
 
 export interface TreeService{
   getTreeNodeRenderer (node: TreeNode): Type | any;

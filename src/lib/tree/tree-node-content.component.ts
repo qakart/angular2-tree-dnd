@@ -14,7 +14,7 @@ export class TreeNodeContent {
   }
 
   ngOnInit(){
-    this.dcl.loadNextToLocation(this.treeService.getTreeNodeRenderer(this.node), this.viewContainerRef).then((compRef: ComponentRef) => {
+    this.dcl.loadNextToLocation(this.treeService.getTreeNodeContentRenderer(this.node), this.viewContainerRef).then((compRef: ComponentRef) => {
       compRef.instance['node'] = this.node;
     });
   }

@@ -26,6 +26,9 @@ import {TreeService, TREE_SERVICE, DefaultTreeService, TreeNode, FIELD_NAME, DEF
     template: `
     <md-content>
       <tree-node [data]="data"></tree-node>
+      <button md-button router-active (click)="addNode()">
+            Add Node
+      </button>
     </md-content>
   `
 })
@@ -58,5 +61,9 @@ export class App {
             }
         ]
     };
+
+    addNode() {
+        this.data.children.push({name: 'added'});
+    }
 
 }

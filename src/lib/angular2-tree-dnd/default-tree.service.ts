@@ -1,5 +1,5 @@
 import {Injectable, ComponentRef} from '@angular/core';
-import {TreeNodeFieldRenderer, TreeService, TreeNode, TreeNodeChildrenRenderer} from './../angular-tree-dnd';
+import {TreeNodeFieldRenderer, TreeService, TreeNode, TreeNodeChildrenRenderer} from './index';
 
 @Injectable()
 export class DefaultTreeService implements TreeService {

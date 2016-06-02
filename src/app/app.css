@@ -12,6 +12,13 @@ button.active:hover{
 .fill{
   flex: 1 1 auto;
 }
+.app-state{
+  margin: 15px;
+  flex: 1;
+}
+.home{
+  flex: 1;
+}
 md-content{
   display: flex;
   flex-direction: column;

@@ -1,8 +1,8 @@
 import { Component, Input, EventEmitter} from 'angular2/core';
-import { TreeNode } from './../angular-tree-dnd'
+import { TreeNode } from './index'
 
 @Component({
-    selector: 'tree-node-field-renderer',
+    selector: 'tree-node-children-renderer',
     directives: [TreeNode],
     template: `<ul *ngIf="loaded" [hidden]="!node.isExpanded()">
         <li *ngFor="let child of node.getChildren()">

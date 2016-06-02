@@ -2,8 +2,12 @@
  * Angular 2 decorators and services
  */
 import { Component, ViewEncapsulation, provide } from '@angular/core';
+import { RouteConfig, Router } from '@angular/router-deprecated';
 
-import {TreeService, TREE_SERVICE, DefaultTreeService, TreeNode, FIELD_NAME, DEFAULT_EXPANDED} from '../lib/angular-tree-dnd';
+import {TreeService, TREE_SERVICE, DefaultTreeService, TreeNode, FIELD_NAME, DEFAULT_EXPANDED} from '../lib/angular2-tree-dnd';
+
+import { Home } from './home';
+import { RouterActive } from './router-active';
 
 /*
  * App Component
@@ -17,7 +21,7 @@ import {TreeService, TREE_SERVICE, DefaultTreeService, TreeNode, FIELD_NAME, DEF
         provide(FIELD_NAME, {useValue: 'name'}),
         provide(DEFAULT_EXPANDED, {useValue: false}),
     ],
-    directives: [TreeNode],
+    directives: [RouterActive, TreeNode],
     encapsulation: ViewEncapsulation.None,
     styles: [
         require('normalize.css'),
@@ -25,14 +29,33 @@ import {TreeService, TREE_SERVICE, DefaultTreeService, TreeNode, FIELD_NAME, DEF
     ],
     template: `
     <md-content>
+      <md-toolbar color="primary">
+          <span>{{ name }}</span>
+          <span class="fill"></span>
+          <button md-button router-active [routerLink]=" ['Index'] ">
+            Index
+          </button>
+          <button md-button router-active [routerLink]=" ['Home'] ">
+            Home
+          </button>
+      </md-toolbar>
+
       <tree-node [data]="data"></tree-node>
       <button md-button router-active (click)="addNode()">
             Add Node
       </button>
-    </md-content>
+
+      <router-outlet></router-outlet>
+      </md-content>
   `
 })
+@RouteConfig([
+    { path: '/',      name: 'Index', component: Home, useAsDefault: true },
+    { path: '/home',  name: 'Home',  component: Home }
+])
 export class App {
+
+    name = "Angular2 Tree DnD";
 
     data = {
         name: 'root',

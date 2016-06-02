@@ -1,5 +1,5 @@
 import { Component, Input, Inject} from 'angular2/core';
-import { TreeNode } from './../angular-tree-dnd'
+import { TreeNode } from './index'
 
 export const FIELD_NAME = "FIELD_NAME";
 

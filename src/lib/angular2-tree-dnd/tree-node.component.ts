@@ -1,5 +1,5 @@
 import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, forwardRef, EventEmitter} from 'angular2/core';
-import {TreeNodeContent, TreeService, TREE_SERVICE} from './../angular-tree-dnd';
+import {TreeNodeContent, TreeService, TREE_SERVICE} from './index';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 /**
@@ -19,7 +19,7 @@ export class TreeNodeChildren {
     }
 
     ngOnInit() {
-        this.dcl.loadNextToLocation(this.treeService.getTreeNodeChildrenRenderer(this.node), this.viewContainerRef).then((compRef:ComponentRef) => {
+        this.dcl.loadNextToLocation(this.treeService.getTreeNodeChildrenRenderer(this.node), this.viewContainerRef).then((compRef:ComponentRef<any>) => {
             compRef.instance['node'] = this.node;
         });
     }

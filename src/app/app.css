@@ -24,3 +24,11 @@ md-content{
   flex-direction: column;
   height: 100%;
 }
+footer{
+  flex: 0 0 60px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}

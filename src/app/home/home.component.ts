@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLarge } from './x-large';
 
@@ -28,7 +29,7 @@ export class Home {
   // Set our default values
   localState = { value: '' };
   // TypeScript public modifiers
-  constructor(public title: Title) {
+  constructor(public appState: AppState, public title: Title) {
 
   }
 
@@ -39,6 +40,7 @@ export class Home {
 
   submitState(value) {
     console.log('submitState', value);
+    this.appState.set('value', value);
     this.localState.value = '';
   }
 

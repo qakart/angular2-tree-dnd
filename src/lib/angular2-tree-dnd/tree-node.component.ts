@@ -1,9 +1,9 @@
 import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, forwardRef, EventEmitter} from 'angular2/core';
-import {TreeNodeContent, TreeService, TREE_SERVICE} from './index';
+import {TreeNodeContent, TreeService, TREE_SERVICE, TreeNodeChildrenRenderer} from './index';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 /**
- * Can't be place in its own file as it creates a circular dependency
+ * Can't be placed in its own file as it creates a circular dependency
  */
 @Component({
     selector: 'tree-node-children',
@@ -19,7 +19,7 @@ export class TreeNodeChildren {
     }
 
     ngOnInit() {
-        this.dcl.loadNextToLocation(this.treeService.getTreeNodeChildrenRenderer(this.node), this.viewContainerRef).then((compRef:ComponentRef<any>) => {
+        this.dcl.loadNextToLocation(this.treeService.getTreeNodeChildrenRenderer(this.node), this.viewContainerRef).then((compRef:ComponentRef<TreeNodeChildrenRenderer>) => {
             compRef.instance['node'] = this.node;
         });
     }

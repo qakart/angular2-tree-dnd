@@ -1,13 +1,14 @@
 import { Component, Input, Inject} from 'angular2/core';
 import { TreeNode } from './index'
+import {TreeNodeContentRenderer} from "./tree-node-content-renderer";
 
 export const FIELD_NAME = "FIELD_NAME";
 
 @Component({
-  selector: 'tree-node-field-renderer',
+  selector: 'default-tree-node-renderer',
   template: `<span (click)="toggle()">{{node.data[fieldName]}}</span>`
 })
-export class TreeNodeFieldRenderer {
+export class DefaultTreeNodeRenderer implements TreeNodeContentRenderer{
   @Input() node: TreeNode;
 
   constructor( @Inject(FIELD_NAME) private fieldName: string) {

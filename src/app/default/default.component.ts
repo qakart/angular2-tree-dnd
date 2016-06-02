@@ -29,6 +29,7 @@ import {TREE_SERVICE, DefaultTreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode
     <md-card-title>Default Tree</md-card-title>
     <md-card-content>
       <tree-node [data]="data"></tree-node>
+      <br/>
       <button md-button router-active (click)="addNode()">
             Add Node
       </button>

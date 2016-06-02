@@ -1,5 +1,5 @@
 import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject} from 'angular2/core';
-import {TreeService, TREE_SERVICE, TreeNode} from './index';
+import {TreeService, TREE_SERVICE, TreeNode, TreeNodeContentRenderer} from './index';
 
 @Component({
   selector: 'tree-node-content',
@@ -14,7 +14,7 @@ export class TreeNodeContent {
   }
 
   ngOnInit(){
-    this.dcl.loadNextToLocation(this.treeService.getTreeNodeContentRenderer(this.node), this.viewContainerRef).then((compRef: ComponentRef<any>) => {
+    this.dcl.loadNextToLocation(this.treeService.getTreeNodeContentRenderer(this.node), this.viewContainerRef).then((compRef: ComponentRef<TreeNodeContentRenderer>) => {
       compRef.instance['node'] = this.node;
     });
   }

@@ -1,8 +1,8 @@
 import { Component, Input, EventEmitter} from 'angular2/core';
-import { TreeNode } from './index'
+import { TreeNode, TreeNodeChildrenRenderer} from './index'
 
 @Component({
-    selector: 'tree-node-children-renderer',
+    selector: 'default-tree-node-children-renderer',
     directives: [TreeNode],
     template: `<ul *ngIf="loaded" [hidden]="!node.isExpanded()">
         <li *ngFor="let child of node.getChildren()">
@@ -10,7 +10,7 @@ import { TreeNode } from './index'
         </li>
     </ul>`
 })
-export class TreeNodeChildrenRenderer {
+export class DefaultTreeNodeChildrenRenderer implements TreeNodeChildrenRenderer{
     @Input() node:TreeNode;
 
     private loaded:boolean = false;

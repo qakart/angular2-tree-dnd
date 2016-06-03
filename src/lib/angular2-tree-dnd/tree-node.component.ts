@@ -30,10 +30,11 @@ export const DEFAULT_EXPANDED : string = "DEFAULT_EXPANDED";
 @Component({
     selector: 'tree-node',
     directives: [TreeNodeContent, TreeNodeChildren],
-    template: `
-    <tree-node-content [node]="$this"></tree-node-content> {{expanded}}
-    <tree-node-children [node]="$this"></tree-node-children>
-  `
+    template:
+        `
+        <tree-node-content [node]="$this"></tree-node-content>
+        <tree-node-children [node]="$this"></tree-node-children>
+        `
 })
 export class TreeNode {
 
@@ -50,6 +51,10 @@ export class TreeNode {
     }
 
     toggle() {
+        // Leaves cannot be expanded
+        if (this.getChildrenCount() === 0){
+            return;
+        }
         this.expanded = !this.expanded;
         this._onExpandedChanged.next(this.expanded);
     }
@@ -62,7 +67,11 @@ export class TreeNode {
         this._onExpandedChanged.subscribe(observer);
     }
 
-    getChildren() {
+    getChildren() : any[] {
         return this.treeService.getChildren(this);
+    }
+
+    getChildrenCount() : number{
+        return this.treeService.getChildrenCount(this);
     }
 }

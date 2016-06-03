@@ -4,11 +4,16 @@ import { TreeNode, TreeNodeChildrenRenderer} from './index'
 @Component({
     selector: 'default-tree-node-children-renderer',
     directives: [TreeNode],
-    template: `<ul *ngIf="loaded" [hidden]="!node.isExpanded()">
-        <li *ngFor="let child of node.getChildren()">
+    styles:[`
+    .tree-node-children {
+        margin-left: 20px;
+    }
+    `],
+    template: `<div class="tree-node-children" *ngIf="loaded" [hidden]="!node.isExpanded()">
+        <div *ngFor="let child of node.getChildren()">
           <tree-node [parent]="node" [data]="child"></tree-node>
-        </li>
-    </ul>`
+        </div>
+    </div>`
 })
 export class DefaultTreeNodeChildrenRenderer implements TreeNodeChildrenRenderer{
     @Input() node:TreeNode;

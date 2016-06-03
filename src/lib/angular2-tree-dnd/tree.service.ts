@@ -4,7 +4,8 @@ import {TreeNode} from './index'
 export interface TreeService{
   getTreeNodeContentRenderer (node: TreeNode): Type | any;
   getTreeNodeChildrenRenderer (node: TreeNode): Type | any;
-  getChildren(node: TreeNode): any;
+  getChildren(node: TreeNode): any[];
+  getChildrenCount(node: TreeNode): number;
   register(node: TreeNode): string;
 }
 

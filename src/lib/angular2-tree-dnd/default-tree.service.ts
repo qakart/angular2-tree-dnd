@@ -11,8 +11,12 @@ export class DefaultTreeService implements TreeService {
         return DefaultTreeNodeChildrenRenderer;
     }
 
-    getChildren(node: TreeNode): any {
+    getChildren(node: TreeNode): any[] {
         return node.data.children;
+    }
+
+    getChildrenCount(node: TreeNode): number {
+        return node.data.children ? node.data.children.length : 0;
     }
 
     register(node: TreeNode): string {

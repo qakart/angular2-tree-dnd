@@ -1,5 +1,5 @@
-import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, forwardRef, EventEmitter} from 'angular2/core';
-import {TreeNodeContent, TreeService, TREE_SERVICE, TreeNodeChildrenRenderer} from './index';
+import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, Optional} from 'angular2/core';
+import {TreeNodeContent, TreeService, TreeNodeChildrenRenderer} from './index';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 /**
@@ -15,7 +15,7 @@ export class TreeNodeChildren {
 
     constructor(private dcl:DynamicComponentLoader,
                 private viewContainerRef:ViewContainerRef,
-                @Inject(TREE_SERVICE) private treeService:TreeService) {
+                private treeService:TreeService) {
     }
 
     ngOnInit() {
@@ -44,9 +44,9 @@ export class TreeNode {
     private _onExpandedChanged: BehaviorSubject<boolean>;
     private expanded:boolean;
 
-    constructor(@Inject(TREE_SERVICE) private treeService:TreeService, @Inject(DEFAULT_EXPANDED) private defaultExpanded: boolean) {
+    constructor(private treeService:TreeService, @Optional()  @Inject(DEFAULT_EXPANDED) private defaultExpanded: boolean) {
         this.$this = this;
-        this.expanded = defaultExpanded;
+        this.expanded = !!defaultExpanded;
         this._onExpandedChanged = new BehaviorSubject(this.expanded);
     }
 

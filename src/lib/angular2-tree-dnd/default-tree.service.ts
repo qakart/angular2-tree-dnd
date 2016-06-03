@@ -1,4 +1,4 @@
-import {Injectable, ComponentRef} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {DefaultTreeNodeRenderer, TreeService, TreeNode, DefaultTreeNodeChildrenRenderer} from './index';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class DefaultTreeService implements TreeService {
         return DefaultTreeNodeChildrenRenderer;
     }
 
-    getChildren(node: TreeNode): any[] {
+    getChildren(node: TreeNode): any {
         return node.data.children;
     }
 

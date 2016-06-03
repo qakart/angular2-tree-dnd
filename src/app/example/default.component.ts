@@ -1,41 +1,31 @@
-import { Component, provide } from '@angular/core';
-import {TREE_SERVICE, DefaultTreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode} from '../../lib/angular2-tree-dnd';
+import { Component } from '@angular/core';
+import {TreeService, DefaultTreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode, DefaultTreeNodeRenderer, DefaultTreeNodeChildrenRenderer} from '../../lib/angular2-tree-dnd/index';
 
 @Component({
   selector: 'default',
   providers: [
-    provide(TREE_SERVICE, {useClass: DefaultTreeService}),
-    provide(FIELD_NAME, {useValue: 'name'}),
-    provide(DEFAULT_EXPANDED, {useValue: false}),
+    {provide: TreeService, useClass: DefaultTreeService},
+    {provide: FIELD_NAME, useValue: 'name'},
+    {provide: DEFAULT_EXPANDED, useValue: false}
   ],
   directives: [TreeNode],
   pipes: [ ],
-  styles: [ `
-.card-container{
-    display: flex;
-    flex-direction: column;
-    margin: 15px;
-}
-.sample-content{
-    flex: 1;
-}
-.card-container md-card{
-    margin: 5px;
-}
-  ` ],
+  styles: [`
+  md-card{
+    margin-bottom: 15px;
+  }
+  `],
   template: `
-  <div class="card-container">
   <md-card>
     <md-card-title>Default Tree</md-card-title>
     <md-card-content>
       <tree-node [data]="data"></tree-node>
       <br/>
-      <button md-button router-active (click)="addNode()">
+      <button md-button (click)="addNode()">
             Add Node
       </button>
     </md-card-content>
   </md-card>
-  </div>
   `
 })
 export class Default {

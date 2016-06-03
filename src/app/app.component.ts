@@ -4,9 +4,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { RouteConfig, Router } from '@angular/router-deprecated';
 
+import './rxjs-operators';
+
 import { AppState } from './app.service';
-import { Default } from './default'
-import { Home } from './home';
+import { Home } from './home'
+import { Example } from './example';
 import { RouterActive } from './router-active';
 
 /*
@@ -16,7 +18,7 @@ import { RouterActive } from './router-active';
 @Component({
   selector: 'app',
   pipes: [ ],
-  providers: [ ],
+  providers: [  ],
   directives: [ RouterActive ],
   encapsulation: ViewEncapsulation.None,
   styles: [
@@ -28,8 +30,8 @@ import { RouterActive } from './router-active';
       <md-toolbar color="primary">
           <span>{{ name }}</span>
           <span class="fill"></span>
-          <button md-button router-active [routerLink]=" ['Default'] ">
-            Default
+          <button md-button router-active [routerLink]=" ['Example'] ">
+            Example
           </button>
           <button md-button router-active [routerLink]=" ['Home'] ">
             Home
@@ -53,7 +55,7 @@ import { RouterActive } from './router-active';
   `
 })
 @RouteConfig([
-  { path: '/',      name: 'Default', component: Default, useAsDefault: true },
+  { path: '/',      name: 'Example', component: Example, useAsDefault: true },
   { path: '/home',  name: 'Home',  component: Home },
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
   { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }

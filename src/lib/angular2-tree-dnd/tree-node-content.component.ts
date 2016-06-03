@@ -1,5 +1,5 @@
 import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject} from 'angular2/core';
-import {TreeService, TREE_SERVICE, TreeNode, TreeNodeContentRenderer} from './index';
+import {TreeService, TreeNode, TreeNodeContentRenderer} from './index';
 
 @Component({
   selector: 'tree-node-content',
@@ -10,7 +10,7 @@ export class TreeNodeContent {
 
   constructor(private dcl: DynamicComponentLoader,
               private viewContainerRef: ViewContainerRef,
-              @Inject(TREE_SERVICE) private treeService: TreeService) {
+              private treeService: TreeService) {
   }
 
   ngOnInit(){

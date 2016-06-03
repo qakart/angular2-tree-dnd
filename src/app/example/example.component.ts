@@ -4,7 +4,7 @@ import { Default, Lazy } from './index';
 @Component({
     selector: 'example',
     providers: [],
-    directives: [Default],
+    directives: [Default, Lazy],
     pipes: [],
     styles: [`
 .card-container{

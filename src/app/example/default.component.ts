@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { SelectedNode } from './index';
-import {TreeService, DefaultTreeService, RENDERED_FIELD_NAME, DEFAULT_EXPANDED, TreeNode, DefaultTreeNodeRenderer, DefaultTreeNodeChildrenRenderer, IdService, SimpleIdService, SingleSelectionService} from '../../lib/angular2-tree-dnd/index';
+import {TreeService, DefaultTreeService, RENDERED_FIELD_NAME, DEFAULT_EXPANDED, TreeNode, DefaultTreeNodeRenderer, DefaultTreeNodeChildrenRenderer, IdService, SimpleIdService, SingleSelectionService, SelectionService} from '../../lib/angular2-tree-dnd/index';
 
 @Component({
   selector: 'default',
   providers: [
-    //{provide: IdService, useClass: SimpleIdService},
-    //{provide: TreeService, useClass: DefaultTreeService},
-    //{provide: SelectionService, useClass: SingleSelectionService},
-    {provide: TreeService, useValue: new DefaultTreeService(new SimpleIdService(), new SingleSelectionService())},
+    {provide: IdService, useClass: SimpleIdService},
+    {provide: TreeService, useClass: DefaultTreeService},
+    {provide: SelectionService, useClass: SingleSelectionService},
+    //{provide: TreeService, useValue: new DefaultTreeService(new SimpleIdService(), new SingleSelectionService())},
     {provide: RENDERED_FIELD_NAME, useValue: 'name'},
     {provide: DEFAULT_EXPANDED, useValue: false}
   ],

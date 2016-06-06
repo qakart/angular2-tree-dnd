@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfe8fe86-2e99-4959-a2ac-6aa7375e7283" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/select/selection.service.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/select/single-selection.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/example/default.component.ts" afterPath="$PROJECT_DIR$/src/app/example/default.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/example/lazy-tree.service.ts" afterPath="$PROJECT_DIR$/src/app/example/lazy-tree.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/example/lazy.component.ts" afterPath="$PROJECT_DIR$/src/app/example/lazy.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/example/selected-node.component.ts" afterPath="$PROJECT_DIR$/src/app/example/selected-node.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/default-tree.service.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/default-tree.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree.service.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree.service.ts" />
     </list>
     <ignored path="angular-tree-dnd.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,8 +38,8 @@
       <file leaf-file-name="default-tree.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/default-tree.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.918033">
-              <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
+            <state vertical-scroll-proportion="-1.7704918">
+              <caret line="6" column="21" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -62,14 +55,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lazy.component.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="lazy.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/example/lazy.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.061643835">
               <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding>
-                <marker date="1465254295860" expanded="true" signature="921:1118" placeholder="..." />
-                <marker date="1465254295860" expanded="true" signature="988:1105" placeholder="..." />
+                <marker date="1465254796164" expanded="true" signature="811:1008" placeholder="..." />
+                <marker date="1465254796164" expanded="true" signature="878:995" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -85,10 +78,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="single-selection.service.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="single-selection.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/select/single-selection.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.80136985">
+            <state vertical-scroll-proportion="0.0">
               <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
               <folding />
             </state>
@@ -98,14 +91,24 @@
       <file leaf-file-name="default.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/example/default.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.586207">
-              <caret line="10" column="114" selection-start-line="9" selection-start-column="4" selection-end-line="10" selection-end-column="114" />
+            <state vertical-scroll-proportion="-0.62068963">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding>
-                <marker date="1465254277532" expanded="true" signature="921:1460" placeholder="..." />
-                <marker date="1465254277532" expanded="true" signature="991:1447" placeholder="..." />
-                <marker date="1465254277532" expanded="true" signature="1142:1179" placeholder="..." />
-                <marker date="1465254277532" expanded="true" signature="1228:1268" placeholder="..." />
+                <marker date="1465254627140" expanded="true" signature="935:1474" placeholder="..." />
+                <marker date="1465254627140" expanded="true" signature="1005:1461" placeholder="..." />
+                <marker date="1465254627140" expanded="true" signature="1156:1193" placeholder="..." />
+                <marker date="1465254627140" expanded="true" signature="1242:1282" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,16 +118,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="id.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/id/id.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -197,15 +190,15 @@
         <option value="$PROJECT_DIR$/src/app/example/index.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/id/field-id.service.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree-node.component.ts" />
-        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts" />
         <option value="$PROJECT_DIR$/src/app/example/selected-node.component.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree.service.ts" />
         <option value="$PROJECT_DIR$/src/app/example/lazy-tree.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/example/default.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/example/lazy.component.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/select/selection.service.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/default-tree.service.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/select/single-selection.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/example/default.component.ts" />
+        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts" />
+        <option value="$PROJECT_DIR$/src/app/example/lazy.component.ts" />
       </list>
     </option>
   </component>
@@ -716,7 +709,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="951" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2183406" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -726,7 +719,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28103045" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28103045" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1072,14 +1065,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/id/id.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1112,46 +1097,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/example/lazy-tree.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/example/lazy.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <marker date="1465254295860" expanded="true" signature="921:1118" placeholder="..." />
-            <marker date="1465254295860" expanded="true" signature="988:1105" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/example/default.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.586207">
-          <caret line="10" column="114" selection-start-line="9" selection-start-column="4" selection-end-line="10" selection-end-column="114" />
-          <folding>
-            <marker date="1465254277532" expanded="true" signature="921:1460" placeholder="..." />
-            <marker date="1465254277532" expanded="true" signature="991:1447" placeholder="..." />
-            <marker date="1465254277532" expanded="true" signature="1142:1179" placeholder="..." />
-            <marker date="1465254277532" expanded="true" signature="1228:1268" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/default-tree.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.918033">
-          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/select/selection.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1162,9 +1107,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/select/single-selection.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80136985">
+        <state vertical-scroll-proportion="0.0">
           <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/default-tree.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.7704918">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/example/lazy-tree.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/example/default.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.62068963">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <marker date="1465254627140" expanded="true" signature="935:1474" placeholder="..." />
+            <marker date="1465254627140" expanded="true" signature="1005:1461" placeholder="..." />
+            <marker date="1465254627140" expanded="true" signature="1156:1193" placeholder="..." />
+            <marker date="1465254627140" expanded="true" signature="1242:1282" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/example/lazy.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.061643835">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <marker date="1465254796164" expanded="true" signature="811:1008" placeholder="..." />
+            <marker date="1465254796164" expanded="true" signature="878:995" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

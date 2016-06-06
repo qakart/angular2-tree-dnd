@@ -4,7 +4,7 @@
 // Import just the rxjs statics and operators we need for THIS app.
 
 // Statics
-import 'rxjs/add/observable/from';
+import 'rxjs/add/observable/of';
 
 // Operators
 import 'rxjs/add/operator/delay';

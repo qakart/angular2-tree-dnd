@@ -7,3 +7,4 @@ export * from './default-tree-node-children-renderer.component';
 export * from './tree-node-children-renderer';
 export * from './tree-node-content-renderer';
 export * from './lazy-tree.service';
+export * from './lazy-tree-node-children-renderer.component';

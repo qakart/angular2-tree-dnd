@@ -1,13 +1,16 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {DefaultTreeService, TreeNode, DefaultTreeNodeChildrenRenderer, DefaultTreeNodeRenderer} from './index';
+import {DefaultTreeService, TreeNode, DefaultTreeNodeChildrenRenderer, DefaultTreeNodeRenderer, LazyTreeNodeChildrenRenderer} from './index';
 
 @Injectable()
 export class LazyTreeService extends DefaultTreeService {
 
-    getChildren(node: TreeNode): any {
-        console.log('LAZY');
-        return node.data.children;
+    getTreeNodeChildrenRenderer(node: TreeNode): any {
+        return LazyTreeNodeChildrenRenderer;
+    }
+
+    getChildren(node: TreeNode): Observable<any> {
+        return Observable.of(node.data.children).delay(1000);
     }
 
 }

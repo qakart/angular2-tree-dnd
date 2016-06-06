@@ -3,7 +3,7 @@ import { TreeNode } from './index'
 import {TreeNodeContentRenderer} from "./tree-node-content-renderer";
 import {Subscription} from 'rxjs/Subscription'
 
-export const FIELD_NAME = "FIELD_NAME";
+export const RENDERED_FIELD_NAME = "RENDERED_FIELD_NAME";
 
 @Component({
     selector: 'default-tree-node-renderer',
@@ -37,7 +37,7 @@ export class DefaultTreeNodeRenderer implements TreeNodeContentRenderer, OnInit,
     private selectedSubscription: Subscription;
     private selected:boolean = false;
 
-    constructor(@Inject(FIELD_NAME) private fieldName:string) {
+    constructor(@Inject(RENDERED_FIELD_NAME) private fieldName:string) {
     }
 
     onExpandedChanged(expanded:boolean):void {

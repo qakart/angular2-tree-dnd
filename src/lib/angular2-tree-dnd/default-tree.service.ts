@@ -1,13 +1,17 @@
 import {Injectable} from '@angular/core';
-import {DefaultTreeNodeRenderer, TreeService, TreeNode, DefaultTreeNodeChildrenRenderer} from './index';
+import {DefaultTreeNodeRenderer, TreeService, TreeNode, DefaultTreeNodeChildrenRenderer, IdService} from './index';
 
 @Injectable()
 export class DefaultTreeService implements TreeService {
 
-    private currentId = 0;
+    private selectedNode:TreeNode;
+    private nodesById: {[key:string]:TreeNode} = {};
 
-    selectedNode:TreeNode;
-    nodesById: {[key:string]:TreeNode} = {};
+    idService: IdService;
+
+    constructor(idService: IdService){
+        this.idService = idService;
+    }
 
     getTreeNodeContentRenderer(node:TreeNode):any {
         return DefaultTreeNodeRenderer;
@@ -62,9 +66,7 @@ export class DefaultTreeService implements TreeService {
             node.parent.registerChildNode(node);
         }
 
-        // Generate uniqueId
-        // TODO Extract an IdGeneratorService
-        const id:string = "node-"+this.currentId++;
+        const id:string = this.idService.generateUniqueId(node);
         this.nodesById[id] = node;
         return id;
     }

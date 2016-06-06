@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
-import {TreeService, DefaultTreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode, DefaultTreeNodeRenderer, DefaultTreeNodeChildrenRenderer} from '../../lib/angular2-tree-dnd/index';
+import { SelectedNode } from './index';
+import {TreeService, DefaultTreeService, RENDERED_FIELD_NAME, DEFAULT_EXPANDED, TreeNode, DefaultTreeNodeRenderer, DefaultTreeNodeChildrenRenderer, IdService, SimpleIdService} from '../../lib/angular2-tree-dnd/index';
 
 @Component({
   selector: 'default',
   providers: [
-    {provide: TreeService, useClass: DefaultTreeService},
-    {provide: FIELD_NAME, useValue: 'name'},
+    //{provide: IdService, useClass: SimpleIdService},
+    //{provide: TreeService, useClass: DefaultTreeService},
+    {provide: TreeService, useValue: new DefaultTreeService(new SimpleIdService())},
+    {provide: RENDERED_FIELD_NAME, useValue: 'name'},
     {provide: DEFAULT_EXPANDED, useValue: false}
   ],
-  directives: [TreeNode],
+  directives: [TreeNode, SelectedNode],
   pipes: [ ],
   styles: [`
   md-card{
@@ -21,7 +24,7 @@ import {TreeService, DefaultTreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode,
     <md-card-content>
       <tree-node [data]="data"></tree-node>
       <br/>
-      <em *ngIf="treeService.getSelectedNode()">Selected node: {{treeService.getSelectedNode().id}} - {{treeService.getSelectedNode().data.name}}</em>
+      <selected-node></selected-node>
       <br/>
       <button md-button (click)="addNode()">
             Add Node

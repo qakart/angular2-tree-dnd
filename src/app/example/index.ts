@@ -1,3 +1,4 @@
+export * from './selected-node.component';
 export * from './lazy-tree.service';
 export * from './lazy-tree-node-children-renderer.component';
 export * from './lazy.component';

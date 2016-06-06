@@ -1,15 +1,18 @@
 import { Component, forwardRef } from '@angular/core';
-import {LazyTreeService} from './index';
-import { TreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode } from '../../lib/angular2-tree-dnd/index';
+import {LazyTreeService, SelectedNode} from './index';
+import { TreeService, RENDERED_FIELD_NAME,ID_FIELD_NAME, DEFAULT_EXPANDED, TreeNode,IdService, FieldIdService } from '../../lib/angular2-tree-dnd/index';
 
 @Component({
     selector: 'lazy',
     providers: [
-        {provide: TreeService, useClass: LazyTreeService},
-        {provide: FIELD_NAME, useValue: 'name'},
+        //{provide: ID_FIELD_NAME, useValue: 'id'},
+        //{provide: IdService, useClass: FieldIdService},
+        //{provide: TreeService, useClass: LazyTreeService},
+        {provide: TreeService, useValue: new LazyTreeService(new FieldIdService('id'))},
+        {provide: RENDERED_FIELD_NAME, useValue: 'name'},
         {provide: DEFAULT_EXPANDED, useValue: false}
     ],
-    directives: [TreeNode],
+    directives: [TreeNode, SelectedNode],
     pipes: [],
     styles: [],
     template: `
@@ -17,6 +20,8 @@ import { TreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode } from '../../lib/a
     <md-card-title>Lazy Tree</md-card-title>
     <md-card-content>
       <tree-node [data]="data"></tree-node>
+      <br/>
+      <selected-node></selected-node>
     </md-card-content>
   </md-card>
   `
@@ -24,26 +29,27 @@ import { TreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode } from '../../lib/a
 export class Lazy {
 
     data = {
+        id: 'r',
         name: 'root',
         children: [
-            {name: 'level1a'},
-            {name: 'level1b'},
-            {name: 'level1c'},
+            {id: '1a', name: 'level1a'},
+            {id: '1b', name: 'level1b'},
+            {id: '1c', name: 'level1c'},
             {
-                name: 'level1a', children: [
-                {name: 'level2a'},
-                {name: 'level2b'},
+                id: '1c', name: 'level1c', children: [
+                {id: '2a', name: 'level2a'},
+                {id: '2b', name: 'level2b'},
                 {
-                    name: 'level2c', children: [
-                    {name: 'level3a'},
+                    id: '2c', name: 'level2c', children: [
+                    {id: '3a', name: 'level3a'},
                     {
-                        name: 'level3b', children: [
-                        {name: 'level4a'},
-                        {name: 'level4b'},
-                        {name: 'level4c'}
+                        id: '3b', name: 'level3b', children: [
+                        {id: '4a', name: 'level4a'},
+                        {id: '4b', name: 'level4b'},
+                        {id: '4c', name: 'level4c'}
                     ]
                     },
-                    {name: 'level3c'}
+                    {id: '3c', name: 'level3c'}
                 ]
                 }
             ]

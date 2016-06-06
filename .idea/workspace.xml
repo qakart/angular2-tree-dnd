@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfe8fe86-2e99-4959-a2ac-6aa7375e7283" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree-node-children-renderer.component.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree-node-children-renderer.component.ts" afterPath="$PROJECT_DIR$/src/app/example/lazy-tree-node-children-renderer.component.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree.service.ts" afterPath="$PROJECT_DIR$/src/app/example/lazy-tree.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/rxjs-operators.ts" afterPath="$PROJECT_DIR$/src/app/rxjs-operators.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/example/index.ts" afterPath="$PROJECT_DIR$/src/app/example/index.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/example/lazy.component.ts" afterPath="$PROJECT_DIR$/src/app/example/lazy.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree.service.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree-node.component.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree-node.component.ts" />
     </list>
     <ignored path="angular-tree-dnd.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,21 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="do.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/rxjs/operator/do.d.ts">
+      <file leaf-file-name="index.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/example/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="from.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/rxjs/observable/from.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.09836066">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -64,6 +54,20 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lazy.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/example/lazy.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding>
+                <marker date="1465220293756" expanded="true" signature="507:748" placeholder="..." />
+                <marker date="1465220293756" expanded="true" signature="574:735" placeholder="..." />
+                <marker date="1465220293756" expanded="true" signature="675:712" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,19 +95,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ForkJoinObservable.js.map" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/rxjs/observable/ForkJoinObservable.js.map">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="sourcemapFileViewerProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="rxjs-operators.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/rxjs-operators.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -114,25 +105,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lazy-tree.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree.service.ts">
+      <file leaf-file-name="index.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="54" />
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lazy-tree-node-children-renderer.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree-node-children-renderer.component.ts">
+      <file leaf-file-name="lazy-tree.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/example/lazy-tree.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60655737">
-              <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lazy-tree-node-children-renderer.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/example/lazy-tree-node-children-renderer.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="119" selection-start-line="1" selection-start-column="119" selection-end-line="1" selection-end-column="119" />
               <folding>
-                <marker date="1465219157412" expanded="true" signature="428:669" placeholder="..." />
-                <marker date="1465219157412" expanded="true" signature="506:658" placeholder="..." />
-                <marker date="1465219157412" expanded="true" signature="555:643" placeholder="..." />
+                <marker date="1465220293760" expanded="true" signature="455:696" placeholder="..." />
+                <marker date="1465220293760" expanded="true" signature="533:685" placeholder="..." />
+                <marker date="1465220293760" expanded="true" signature="582:670" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -153,7 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/example/src/app/tree/tree-node-content.component.ts" />
         <option value="$PROJECT_DIR$/example/src/app/tree/tree-node.component.ts" />
         <option value="$PROJECT_DIR$/example/src/app/tree/tree-node-name-renderer.component.ts" />
         <option value="$PROJECT_DIR$/example/src/app/tree/default-tree-config.ts" />
@@ -194,16 +194,17 @@
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/angular2-tree-dnd.d.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/package.json" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/example/lazy-tree.service.ts" />
         <option value="$PROJECT_DIR$/src/vendor.ts" />
         <option value="$PROJECT_DIR$/src/app/example/example.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/example/lazy.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/example/index.ts" />
-        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree-node.component.ts" />
         <option value="$PROJECT_DIR$/src/app/rxjs-operators.ts" />
-        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree.service.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree-node-children-renderer.component.ts" />
+        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/example/lazy-tree-node-children-renderer.component.ts" />
+        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts" />
+        <option value="$PROJECT_DIR$/src/app/example/lazy.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/example/lazy-tree.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/example/index.ts" />
       </list>
     </option>
   </component>
@@ -792,38 +793,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/example/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/example/lazy.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <marker date="1464969923934" expanded="true" signature="483:724" placeholder="..." />
-            <marker date="1464969923934" expanded="true" signature="550:711" placeholder="..." />
-            <marker date="1464969923934" expanded="true" signature="651:688" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/default-tree.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -964,23 +937,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree.service.ts">
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="54" />
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree-node-children-renderer.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/example/lazy.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60655737">
-          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <marker date="1465219157412" expanded="true" signature="428:669" placeholder="..." />
-            <marker date="1465219157412" expanded="true" signature="506:658" placeholder="..." />
-            <marker date="1465219157412" expanded="true" signature="555:643" placeholder="..." />
+            <marker date="1465220293756" expanded="true" signature="507:748" placeholder="..." />
+            <marker date="1465220293756" expanded="true" signature="574:735" placeholder="..." />
+            <marker date="1465220293756" expanded="true" signature="675:712" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/example/lazy-tree.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/example/lazy-tree-node-children-renderer.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="119" selection-start-line="1" selection-start-column="119" selection-end-line="1" selection-end-column="119" />
+          <folding>
+            <marker date="1465220293760" expanded="true" signature="455:696" placeholder="..." />
+            <marker date="1465220293760" expanded="true" signature="533:685" placeholder="..." />
+            <marker date="1465220293760" expanded="true" signature="582:670" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/example/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09836066">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

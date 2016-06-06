@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {DefaultTreeService, TreeNode, DefaultTreeNodeChildrenRenderer, DefaultTreeNodeRenderer, LazyTreeNodeChildrenRenderer} from './index';
+import {LazyTreeNodeChildrenRenderer} from './index';
+import {DefaultTreeService, TreeNode} from '../../lib/angular2-tree-dnd/index';
 
 @Injectable()
 export class LazyTreeService extends DefaultTreeService {

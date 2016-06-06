@@ -1,5 +1,5 @@
 import { Component, Input, EventEmitter} from 'angular2/core';
-import { TreeNode, TreeNodeChildrenRenderer, DefaultTreeNodeChildrenRenderer} from './index'
+import { TreeNode, TreeNodeChildrenRenderer, DefaultTreeNodeChildrenRenderer} from '../../lib/angular2-tree-dnd/index';
 
 @Component({
     selector: 'default-tree-node-children-renderer',

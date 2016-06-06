@@ -1,5 +1,6 @@
 import { Component, forwardRef } from '@angular/core';
-import { TreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode, LazyTreeService } from '../../lib/angular2-tree-dnd/index';
+import {LazyTreeService} from './index';
+import { TreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode } from '../../lib/angular2-tree-dnd/index';
 
 @Component({
     selector: 'lazy',

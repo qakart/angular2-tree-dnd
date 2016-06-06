@@ -1,4 +1,4 @@
-import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, Optional, OnInit} from 'angular2/core';
+import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, Optional, OnInit, OnDestroy} from 'angular2/core';
 import {TreeNodeContent, TreeService, TreeNodeChildrenRenderer} from './index';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
@@ -37,11 +37,14 @@ export const DEFAULT_EXPANDED:string = "DEFAULT_EXPANDED";
         <tree-node-children [node]="$this"></tree-node-children>
         `
 })
-export class TreeNode implements OnInit {
+export class TreeNode implements OnInit, OnDestroy {
 
     @Input() data:any;
     @Input() parent:TreeNode;
     @Input() index:number;
+    // TODO We must maintain an array of children TreeNodes as the ngOnDestroy is broken since we use a DynamicComponentLoader to load children
+    private children: TreeNode[];
+
     private id:string;
     private $this:TreeNode;
 
@@ -56,15 +59,60 @@ export class TreeNode implements OnInit {
         this.expanded = !!defaultExpanded;
         this._onExpandedChanged = new BehaviorSubject(this.expanded);
         this._onSelectedChanged = new BehaviorSubject(this.selected);
+
+        this.children = [];
     }
 
     ngOnInit() {
         this.id = this.treeService.register(this);
     }
 
+    ngOnDestroy(){
+       // TODO There is a bug in current version of Angular2 => ngOnDestroy is only called for the current node, not for its children.
+    }
+
+    getId(): string{
+        return this.id;
+    }
+
+    getChildrenData(): any {
+        return this.treeService.getChildrenData(this);
+    }
+
+    getChildrenDataCount():number {
+        return this.treeService.getChildrenDataCount(this);
+    }
+
+    registerChildNode(child:TreeNode){
+        this.children[child.index] = child;
+    }
+
+    getSiblingNodes():TreeNode[] {
+        return this.treeService.getSiblingNodes(this);
+    }
+
+    remove():boolean {
+        if (!this.parent) {
+            console.log("Root node cannot be removed.");
+            return false;
+        }
+
+        // Recursively remove children as the ngOnDestroy is broken
+        for (var child of this.children) {
+            child.remove();
+        }
+
+        this.treeService.unregister(this);
+        // Delete node data from parent's children
+        const siblingsData:any = this.parent.getChildrenData();
+        siblingsData.splice(this.index, 1);
+        return true;
+    }
+
+    //------------------------------ Expanded ------------------------------//
     toggleExpanded() {
         // Leaves cannot be expanded
-        if (this.getChildrenCount() === 0) {
+        if (this.getChildrenDataCount() === 0) {
             return;
         }
         this.expanded = !this.expanded;
@@ -79,6 +127,7 @@ export class TreeNode implements OnInit {
         return this._onExpandedChanged.subscribe(observer);
     }
 
+    //------------------------------ Selected ------------------------------//
     toggleSelected() {
         this.selected = !this.selected;
         this._onSelectedChanged.next(this.selected);
@@ -90,31 +139,5 @@ export class TreeNode implements OnInit {
 
     onSelectedChanged(observer:(selected:boolean) => void):Subscription {
         return this._onSelectedChanged.subscribe(observer);
-    }
-
-    getChildrenData(): any {
-        return this.treeService.getChildrenData(this);
-    }
-
-    getChildrenCount():number {
-        return this.treeService.getChildrenCount(this);
-    }
-
-    getSiblingNodes():TreeNode[] {
-        return this.treeService.getSiblingNodes(this);
-    }
-
-    remove():boolean {
-        if (!this.parent) {
-            return false;
-        }
-        // Unselect node
-        this.selected = false;
-        this._onSelectedChanged.next(false);
-
-        // Delete node data from parent's children
-        const siblingsData:any = this.parent.getChildrenData();
-        siblingsData.splice(this.index, 1);
-        return true;
     }
 }

@@ -25,7 +25,7 @@ export const FIELD_NAME = "FIELD_NAME";
   `],
     template: `
     <div class="tree-node-content">
-        <button *ngIf="node.getChildrenCount() > 0" (click)="node.toggleExpanded()">{{buttonIcon}}</button>
+        <button *ngIf="node.getChildrenDataCount() > 0" (click)="node.toggleExpanded()">{{buttonIcon}}</button>
         <span class="tree-node-content-label" [class.tree-node-content-label-selected]="selected" (click)="node.toggleSelected()">{{node.data[fieldName]}}</span>
     </div>`
 })

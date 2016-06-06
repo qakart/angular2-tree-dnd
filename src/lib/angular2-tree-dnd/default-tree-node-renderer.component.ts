@@ -1,6 +1,7 @@
-import { Component, Input, Inject} from 'angular2/core';
+import { Component, Input, Inject, OnInit, OnDestroy} from 'angular2/core';
 import { TreeNode } from './index'
 import {TreeNodeContentRenderer} from "./tree-node-content-renderer";
+import {Subscription} from 'rxjs/Subscription'
 
 export const FIELD_NAME = "FIELD_NAME";
 
@@ -14,19 +15,20 @@ export const FIELD_NAME = "FIELD_NAME";
         cursor: pointer;
     }
   `],
-    template: `<span class="tree-node-content" [class.tree-node-content-with-children]="node.getChildrenCount() > 0" (click)="toggle()">{{icon}} {{node.data[fieldName]}}</span>`
+    template: `<span class="tree-node-content" [class.tree-node-content-with-children]="node.getChildrenCount() > 0" (click)="node.toggleExpanded()">{{icon}} {{node.data[fieldName]}}</span>`
 })
-export class DefaultTreeNodeRenderer implements TreeNodeContentRenderer {
+export class DefaultTreeNodeRenderer implements TreeNodeContentRenderer, OnInit, OnDestroy {
     @Input() node:TreeNode;
 
     private icon:string;
+    private expandedSubscription: Subscription;
 
     constructor(@Inject(FIELD_NAME) private fieldName:string) {
     }
 
-    private updateIcon() {
+    onExpandedChanged(expanded:boolean):void {
         if (this.node.getChildrenCount() > 0) {
-            if (this.node.isExpanded()) {
+            if (expanded) {
                 this.icon = '-';
             } else {
                 this.icon = '+';
@@ -37,12 +39,11 @@ export class DefaultTreeNodeRenderer implements TreeNodeContentRenderer {
     }
 
     ngOnInit() {
-        console.log('hello `Tree node Name renderer` component ' + this.node.data[this.fieldName] + ' ' + (this.node.parent ? this.node.parent.data[this.fieldName] : "null"));
-
-        this.node.onExpandedChanged((expanded:boolean) => this.updateIcon());
+        this.expandedSubscription = this.node.onExpandedChanged((expanded:boolean) => this.onExpandedChanged(expanded));
     }
 
-    toggle() {
-        this.node.toggle();
+    ngOnDestroy(){
+        this.expandedSubscription.unsubscribe();
     }
+
 }

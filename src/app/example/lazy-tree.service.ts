@@ -11,7 +11,7 @@ export class LazyTreeService extends DefaultTreeService {
     }
 
     getChildren(node: TreeNode): Observable<any> {
-        return Observable.of(node.data.children).delay(1000);
+        return Observable.of(node.data.children).delay(500);
     }
 
 }

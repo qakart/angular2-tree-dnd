@@ -2,6 +2,7 @@ import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRe
 import {TreeNodeContent, TreeService, TreeNodeChildrenRenderer} from './index';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
+import {Subscription} from 'rxjs/Subscription';
 
 /**
  * Can't be placed in its own file as it creates a circular dependency
@@ -41,16 +42,21 @@ export class TreeNode {
     @Input() data:any;
     @Input() parent:TreeNode;
     private $this:TreeNode;
+
     private _onExpandedChanged:BehaviorSubject<boolean>;
     private expanded:boolean;
+
+    private _onSelectedChanged:BehaviorSubject<boolean>;
+    private selected:boolean;
 
     constructor(private treeService:TreeService, @Optional() @Inject(DEFAULT_EXPANDED) private defaultExpanded:boolean) {
         this.$this = this;
         this.expanded = !!defaultExpanded;
         this._onExpandedChanged = new BehaviorSubject(this.expanded);
+        this._onSelectedChanged = new BehaviorSubject(this.selected);
     }
 
-    toggle() {
+    toggleExpanded() {
         // Leaves cannot be expanded
         if (this.getChildrenCount() === 0) {
             return;
@@ -63,8 +69,21 @@ export class TreeNode {
         return this.expanded;
     }
 
-    onExpandedChanged(observer:(expanded:boolean) => void) {
-        this._onExpandedChanged.subscribe(observer);
+    onExpandedChanged(observer:(expanded:boolean) => void): Subscription {
+        return this._onExpandedChanged.subscribe(observer);
+    }
+
+    toggleSelected() {
+        this.selected = !this.selected;
+        this._onSelectedChanged.next(this.selected);
+    }
+
+    isSelected():boolean {
+        return this.selected;
+    }
+
+    onSelectedChanged(observer:(selected:boolean) => void): Subscription {
+        return this._onSelectedChanged.subscribe(observer);
     }
 
     getChildren():any {

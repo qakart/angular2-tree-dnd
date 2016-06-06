@@ -4,7 +4,7 @@ import { TreeNode, TreeNodeChildrenRenderer, DefaultTreeNodeChildrenRenderer} fr
 @Component({
     selector: 'default-tree-node-children-renderer',
     directives: [TreeNode],
-    styles:[`
+    styles: [`
     .tree-node-children {
         margin-left: 20px;
     }
@@ -18,22 +18,19 @@ import { TreeNode, TreeNodeChildrenRenderer, DefaultTreeNodeChildrenRenderer} fr
         </div>
     </div>`
 })
-export class LazyTreeNodeChildrenRenderer extends DefaultTreeNodeChildrenRenderer implements TreeNodeChildrenRenderer{
+export class LazyTreeNodeChildrenRenderer extends DefaultTreeNodeChildrenRenderer implements TreeNodeChildrenRenderer {
     @Input() node:TreeNode;
 
-    private initialized:boolean = false;
     private loading:boolean = true;
-    private children: any[];
+    private children:any[];
 
-    ngOnInit(){
-        this.node.onExpandedChanged((expanded: boolean) => {
-            this.initialized = this.initialized || expanded;
-            if (!this.children && expanded){
-                this.node.getChildren().subscribe((children:any[]) => {
-                    this.children = children;
-                    this.loading = false;
-                });
-            }
-        });
+    onExpandedChanged(expanded:boolean):void {
+        super.onExpandedChanged(expanded);
+        if (!this.children && expanded) {
+            this.node.getChildren().subscribe((children:any[]) => {
+                this.children = children;
+                this.loading = false;
+            });
+        }
     }
 }

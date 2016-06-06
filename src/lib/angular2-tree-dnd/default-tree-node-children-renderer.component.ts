@@ -1,5 +1,6 @@
-import { Component, Input, EventEmitter} from 'angular2/core';
+import { Component, Input, EventEmitter, OnInit, OnDestroy} from 'angular2/core';
 import { TreeNode, TreeNodeChildrenRenderer} from './index'
+import {Subscription} from 'rxjs/Subscription'
 
 @Component({
     selector: 'default-tree-node-children-renderer',
@@ -9,18 +10,27 @@ import { TreeNode, TreeNodeChildrenRenderer} from './index'
         margin-left: 20px;
     }
     `],
-    template: `<div class="tree-node-children" *ngIf="loaded" [hidden]="!node.isExpanded()">
+    template: `<div class="tree-node-children" *ngIf="initialized" [hidden]="!node.isExpanded()">
         <div *ngFor="let child of node.getChildren()">
           <tree-node [parent]="node" [data]="child"></tree-node>
         </div>
     </div>`
 })
-export class DefaultTreeNodeChildrenRenderer implements TreeNodeChildrenRenderer{
+export class DefaultTreeNodeChildrenRenderer implements TreeNodeChildrenRenderer, OnInit, OnDestroy{
     @Input() node:TreeNode;
 
-    private loaded:boolean = false;
+    initialized:boolean = false;
+    private expandedSubscription: Subscription;
+
+    onExpandedChanged(expanded:boolean) : void {
+        this.initialized = this.initialized || expanded;
+    }
 
     ngOnInit(){
-        this.node.onExpandedChanged((expanded: boolean) => this.loaded = this.loaded || expanded);
+        this.expandedSubscription = this.node.onExpandedChanged((expanded: boolean) => this.onExpandedChanged(expanded));
+    }
+
+    ngOnDestroy(){
+        this.expandedSubscription.unsubscribe();
     }
 }

@@ -1,11 +1,11 @@
-import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject} from 'angular2/core';
+import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, OnInit} from 'angular2/core';
 import {TreeService, TreeNode, TreeNodeContentRenderer} from './index';
 
 @Component({
   selector: 'tree-node-content',
   template: ``
 })
-export class TreeNodeContent {
+export class TreeNodeContent implements OnInit {
   @Input() node: TreeNode;
 
   constructor(private dcl: DynamicComponentLoader,

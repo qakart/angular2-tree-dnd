@@ -3,4 +3,5 @@ import {TreeNode} from './index'
 
 export interface TreeNodeContentRenderer{
   node: TreeNode;
+  onExpandedChanged(expanded:boolean):void;
 }

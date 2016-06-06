@@ -1,4 +1,4 @@
-import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, Optional} from 'angular2/core';
+import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, Optional, OnInit} from 'angular2/core';
 import {TreeNodeContent, TreeService, TreeNodeChildrenRenderer} from './index';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
@@ -37,10 +37,11 @@ export const DEFAULT_EXPANDED:string = "DEFAULT_EXPANDED";
         <tree-node-children [node]="$this"></tree-node-children>
         `
 })
-export class TreeNode {
+export class TreeNode implements OnInit{
 
     @Input() data:any;
     @Input() parent:TreeNode;
+    private id:string;
     private $this:TreeNode;
 
     private _onExpandedChanged:BehaviorSubject<boolean>;
@@ -54,6 +55,10 @@ export class TreeNode {
         this.expanded = !!defaultExpanded;
         this._onExpandedChanged = new BehaviorSubject(this.expanded);
         this._onSelectedChanged = new BehaviorSubject(this.selected);
+    }
+
+    ngOnInit(){
+        this.id = this.treeService.register(this);
     }
 
     toggleExpanded() {

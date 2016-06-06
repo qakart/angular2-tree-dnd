@@ -21,6 +21,8 @@ import {TreeService, DefaultTreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode,
     <md-card-content>
       <tree-node [data]="data"></tree-node>
       <br/>
+      <em *ngIf="treeService.getSelectedNode()">Selected node: {{treeService.getSelectedNode().id}} - {{treeService.getSelectedNode().data.name}}</em>
+      <br/>
       <button md-button (click)="addNode()">
             Add Node
       </button>
@@ -58,7 +60,14 @@ export class Default {
     ]
   };
 
+  constructor(private treeService:TreeService){
+  }
+
   addNode() {
-    this.data.children.push({name: 'added'});
+    const selectedNodeData = this.treeService.getSelectedNode() ? this.treeService.getSelectedNode().data : this.data;
+    if (!selectedNodeData.children){
+      selectedNodeData.children = [];
+    }
+    selectedNodeData.children.push({name: 'added'});
   }
 }

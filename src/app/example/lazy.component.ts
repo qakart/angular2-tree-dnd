@@ -17,10 +17,6 @@ import { TreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode } from '../../lib/a
     <md-card-title>Lazy Tree</md-card-title>
     <md-card-content>
       <tree-node [data]="data"></tree-node>
-      <br/>
-      <button md-button (click)="addNode()">
-            Add Node
-      </button>
     </md-card-content>
   </md-card>
   `
@@ -54,8 +50,4 @@ export class Lazy {
             }
         ]
     };
-
-    addNode() {
-        this.data.children.push({name: 'added'});
-    }
 }

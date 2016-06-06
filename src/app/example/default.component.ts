@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { SelectedNode } from './index';
-import {TreeService, DefaultTreeService, RENDERED_FIELD_NAME, DEFAULT_EXPANDED, TreeNode, DefaultTreeNodeRenderer, DefaultTreeNodeChildrenRenderer, IdService, SimpleIdService} from '../../lib/angular2-tree-dnd/index';
+import {TreeService, DefaultTreeService, RENDERED_FIELD_NAME, DEFAULT_EXPANDED, TreeNode, DefaultTreeNodeRenderer, DefaultTreeNodeChildrenRenderer, IdService, SimpleIdService, SingleSelectionService} from '../../lib/angular2-tree-dnd/index';
 
 @Component({
   selector: 'default',
   providers: [
     //{provide: IdService, useClass: SimpleIdService},
     //{provide: TreeService, useClass: DefaultTreeService},
-    {provide: TreeService, useValue: new DefaultTreeService(new SimpleIdService())},
+    //{provide: SelectionService, useClass: SingleSelectionService},
+    {provide: TreeService, useValue: new DefaultTreeService(new SimpleIdService(), new SingleSelectionService())},
     {provide: RENDERED_FIELD_NAME, useValue: 'name'},
     {provide: DEFAULT_EXPANDED, useValue: false}
   ],
@@ -76,7 +77,7 @@ export class Default {
   }
 
   addNode() {
-    const selectedNodeData = this.treeService.getSelectedNode() ? this.treeService.getSelectedNode().data : this.data;
+    const selectedNodeData = this.treeService.selection.hasSelectedNode() ? this.treeService.selection.getSelectedNode().data : this.data;
     if (!selectedNodeData.children){
       selectedNodeData.children = [];
     }
@@ -84,8 +85,8 @@ export class Default {
   }
 
   deleteNode() {
-    if (this.treeService.getSelectedNode()){
-      this.treeService.getSelectedNode().remove();
+    if (this.treeService.selection.hasSelectedNode()){
+      this.treeService.selection.getSelectedNode().remove();
     }
   }
 }

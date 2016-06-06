@@ -1,9 +1,9 @@
 import {Type} from 'angular2/core';
-import {TreeNode, IdService} from './index'
+import {TreeNode, IdService, SelectionService} from './index'
 
 export abstract class TreeService {
-    idService: IdService;
-    getSelectedNode: () => TreeNode;
+    ids: IdService;
+    selection: SelectionService;
     getTreeNodeContentRenderer : (node:TreeNode) => Type | any;
     getTreeNodeChildrenRenderer : (node:TreeNode) => Type | any;
     getChildrenData: (node:TreeNode) => any;

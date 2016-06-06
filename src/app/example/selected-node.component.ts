@@ -8,7 +8,7 @@ import {TreeService} from '../../lib/angular2-tree-dnd/index';
     pipes: [],
     styles: [],
     template: `
-      <em *ngIf="treeService.getSelectedNode()">Selected node: {{treeService.getSelectedNode().id}} - {{treeService.getSelectedNode().data.name}}</em>
+      <em *ngIf="treeService.selection.hasSelectedNode()">Selected node: {{treeService.selection.getSelectedNode().id}} - {{treeService.selection.getSelectedNode().data.name}}</em>
     `
 })
 export class SelectedNode {

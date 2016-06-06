@@ -11,8 +11,8 @@ import {Subscription} from 'rxjs/Subscription'
     }
     `],
     template: `<div class="tree-node-children" *ngIf="initialized" [hidden]="!node.isExpanded()">
-        <div *ngFor="let child of node.getChildren()">
-          <tree-node [parent]="node" [data]="child"></tree-node>
+        <div *ngFor="let child of node.getChildrenData(); let i = index">
+          <tree-node [parent]="node" [data]="child" [index]="i"></tree-node>
         </div>
     </div>`
 })

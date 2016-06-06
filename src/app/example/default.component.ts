@@ -26,6 +26,15 @@ import {TreeService, DefaultTreeService, FIELD_NAME, DEFAULT_EXPANDED, TreeNode,
       <button md-button (click)="addNode()">
             Add Node
       </button>
+       <button md-button (click)="deleteNode()">
+            Delete Node
+      </button>
+      <!--TODO display json in right column-->
+      <!--<pre>-->
+      <!--<code>-->
+      <!--{{data | json}}-->
+      <!--</code>-->
+      <!--</pre>-->
     </md-card-content>
   </md-card>
   `
@@ -69,5 +78,11 @@ export class Default {
       selectedNodeData.children = [];
     }
     selectedNodeData.children.push({name: 'added'});
+  }
+
+  deleteNode() {
+    if (this.treeService.getSelectedNode()){
+      this.treeService.getSelectedNode().remove();
+    }
   }
 }

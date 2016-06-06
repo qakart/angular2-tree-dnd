@@ -37,10 +37,11 @@ export const DEFAULT_EXPANDED:string = "DEFAULT_EXPANDED";
         <tree-node-children [node]="$this"></tree-node-children>
         `
 })
-export class TreeNode implements OnInit{
+export class TreeNode implements OnInit {
 
     @Input() data:any;
     @Input() parent:TreeNode;
+    @Input() index:number;
     private id:string;
     private $this:TreeNode;
 
@@ -57,7 +58,7 @@ export class TreeNode implements OnInit{
         this._onSelectedChanged = new BehaviorSubject(this.selected);
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.id = this.treeService.register(this);
     }
 
@@ -74,7 +75,7 @@ export class TreeNode implements OnInit{
         return this.expanded;
     }
 
-    onExpandedChanged(observer:(expanded:boolean) => void): Subscription {
+    onExpandedChanged(observer:(expanded:boolean) => void):Subscription {
         return this._onExpandedChanged.subscribe(observer);
     }
 
@@ -87,15 +88,33 @@ export class TreeNode implements OnInit{
         return this.selected;
     }
 
-    onSelectedChanged(observer:(selected:boolean) => void): Subscription {
+    onSelectedChanged(observer:(selected:boolean) => void):Subscription {
         return this._onSelectedChanged.subscribe(observer);
     }
 
-    getChildren():any {
-        return this.treeService.getChildren(this);
+    getChildrenData(): any {
+        return this.treeService.getChildrenData(this);
     }
 
     getChildrenCount():number {
         return this.treeService.getChildrenCount(this);
+    }
+
+    getSiblingNodes():TreeNode[] {
+        return this.treeService.getSiblingNodes(this);
+    }
+
+    remove():boolean {
+        if (!this.parent) {
+            return false;
+        }
+        // Unselect node
+        this.selected = false;
+        this._onSelectedChanged.next(false);
+
+        // Delete node data from parent's children
+        const siblingsData:any = this.parent.getChildrenData();
+        siblingsData.splice(this.index, 1);
+        return true;
     }
 }

@@ -16,8 +16,13 @@ export class DefaultTreeService implements TreeService {
         return DefaultTreeNodeChildrenRenderer;
     }
 
-    getChildren(node:TreeNode):any {
+    getChildrenData(node:TreeNode):any {
         return node.data.children;
+    }
+
+    getSiblingNodes(node:TreeNode):TreeNode[] {
+        // TODO implement using ViewQuery ?
+        return null; //this.getChildren(node.parent);
     }
 
     getChildrenCount(node:TreeNode):number {

@@ -12,8 +12,8 @@ import { TreeNode, TreeNodeChildrenRenderer, DefaultTreeNodeChildrenRenderer} fr
     template: `<div class="tree-node-children" *ngIf="initialized" [hidden]="!node.isExpanded()">
         <div *ngIf="loading">Loading ...</div>
         <div *ngIf="!loading">
-            <div *ngFor="let child of children">
-              <tree-node [parent]="node" [data]="child"></tree-node>
+            <div *ngFor="let child of children; let i = index">
+              <tree-node [parent]="node" [data]="child" [index]="i"></tree-node>
             </div>
         </div>
     </div>`
@@ -27,7 +27,7 @@ export class LazyTreeNodeChildrenRenderer extends DefaultTreeNodeChildrenRendere
     onExpandedChanged(expanded:boolean):void {
         super.onExpandedChanged(expanded);
         if (!this.children && expanded) {
-            this.node.getChildren().subscribe((children:any[]) => {
+            this.node.getChildrenData().subscribe((children:any[]) => {
                 this.children = children;
                 this.loading = false;
             });

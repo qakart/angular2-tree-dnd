@@ -8,7 +8,6 @@ export abstract class TreeService {
     getTreeNodeChildrenRenderer : (node:TreeNode) => Type | any;
     getChildrenData: (node:TreeNode) => any;
     getChildrenDataCount: (node:TreeNode) => number;
-    getSiblingNodes: (node:TreeNode) => TreeNode[];
     register: (node:TreeNode) => string;
     unregister: (node:TreeNode) => void;
     getNodeById: (id:string) => void;

@@ -43,7 +43,7 @@ export class TreeNode implements OnInit, OnDestroy {
     @Input() parent:TreeNode;
     @Input() index:number;
     // TODO We must maintain an array of children TreeNodes as the ngOnDestroy is broken since we use a DynamicComponentLoader to load children
-    private children: TreeNode[];
+    private children:TreeNode[];
 
     private id:string;
     private $this:TreeNode;
@@ -67,15 +67,15 @@ export class TreeNode implements OnInit, OnDestroy {
         this.id = this.treeService.register(this);
     }
 
-    ngOnDestroy(){
-       // TODO There is a bug in current version of Angular2 => ngOnDestroy is only called for the current node, not for its children.
+    ngOnDestroy() {
+        // TODO There is a bug in current version of Angular2 => ngOnDestroy is only called for the current node, not for its children.
     }
 
-    getId(): string{
+    getId():string {
         return this.id;
     }
 
-    getChildrenData(): any {
+    getChildrenData():any {
         return this.treeService.getChildrenData(this);
     }
 
@@ -83,12 +83,40 @@ export class TreeNode implements OnInit, OnDestroy {
         return this.treeService.getChildrenDataCount(this);
     }
 
-    registerChildNode(child:TreeNode){
+    registerChildNode(child:TreeNode) {
         this.children[child.index] = child;
     }
 
+    isRootNode(): boolean {
+        return !this.parent;
+    }
+
     getSiblingNodes():TreeNode[] {
-        return this.treeService.getSiblingNodes(this);
+        if (this.parent) {
+            return this.parent.children;
+        }
+        return [];
+    }
+
+    getPreviousNode():TreeNode {
+        if (this.isRootNode()) {
+            return null;
+        }
+        if (this.index > 0) {
+            return this.getSiblingNodes()[this.index - 1];
+        }
+        return this.parent;
+    }
+
+    getNextNode():TreeNode {
+        if (this.isRootNode()) {
+            return null;
+        }
+        const siblings:TreeNode[] = this.getSiblingNodes();
+        if (this.index < siblings.length - 1) {
+            return this.getSiblingNodes()[this.index + 1];
+        }
+        return this.parent.getNextNode();
     }
 
     remove():boolean {

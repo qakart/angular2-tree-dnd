@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {TreeService} from '../../lib/angular2-tree-dnd/index';
+import {SelectionService} from '../../lib/angular2-tree-dnd/index';
 
 @Component({
     selector: 'selected-node',
@@ -8,10 +8,10 @@ import {TreeService} from '../../lib/angular2-tree-dnd/index';
     pipes: [],
     styles: [],
     template: `
-      <em *ngIf="treeService.selection.hasSelectedNode()">Selected node: {{treeService.selection.getSelectedNode().id}} - {{treeService.selection.getSelectedNode().data.name}}</em>
+      <em *ngIf="selection.hasSelectedNode()">Selected node: {{selection.getSelectedNode().id}} - {{selection.getSelectedNode().data.name}}</em>
     `
 })
 export class SelectedNode {
-    constructor(private treeService:TreeService) {
+    constructor(private selection:SelectionService) {
     }
 }

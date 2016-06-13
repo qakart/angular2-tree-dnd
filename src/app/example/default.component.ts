@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SelectedNode } from './index';
-import {TreeService, DefaultTreeService, RENDERED_FIELD_NAME, DEFAULT_EXPANDED, TreeNode, DefaultTreeNodeRenderer, DefaultTreeNodeChildrenRenderer, IdService, SimpleIdService, SingleSelectionService, SelectionService} from '../../lib/angular2-tree-dnd/index';
+import {TreeService, DefaultTreeService, RENDERED_FIELD_NAME, DEFAULT_EXPANDED, TreeNode, DefaultTreeNodeRenderer, DefaultTreeNodeChildrenRenderer, IdService, SimpleIdService, SingleSelectionService, SelectionService, KeyboardNavigation} from '../../lib/angular2-tree-dnd/index';
 
 @Component({
   selector: 'default',
@@ -12,7 +12,7 @@ import {TreeService, DefaultTreeService, RENDERED_FIELD_NAME, DEFAULT_EXPANDED, 
     {provide: RENDERED_FIELD_NAME, useValue: 'name'},
     {provide: DEFAULT_EXPANDED, useValue: false}
   ],
-  directives: [TreeNode, SelectedNode],
+  directives: [TreeNode, SelectedNode, KeyboardNavigation],
   pipes: [ ],
   styles: [`
   md-card{
@@ -33,6 +33,7 @@ import {TreeService, DefaultTreeService, RENDERED_FIELD_NAME, DEFAULT_EXPANDED, 
        <button md-button (click)="deleteNode()">
             Delete Node
       </button>
+      <keyboard-navigation></keyboard-navigation>
       <!--TODO display json in right column-->
       <!--<pre>-->
       <!--<code>-->
@@ -88,5 +89,9 @@ export class Default {
     if (this.treeService.selection.hasSelectedNode()){
       this.treeService.selection.getSelectedNode().remove();
     }
+  }
+
+  onKeyUp($event){
+    console.log($event);
   }
 }

@@ -11,3 +11,4 @@ export * from './tree-node.component';
 export * from './default-tree-node-children-renderer.component';
 export * from './tree-node-children-renderer';
 export * from './tree-node-content-renderer';
+export * from './key/key-navigation.component';

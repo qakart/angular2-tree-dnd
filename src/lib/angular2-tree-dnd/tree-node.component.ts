@@ -98,25 +98,50 @@ export class TreeNode implements OnInit, OnDestroy {
         return [];
     }
 
+    private getNextSibling():TreeNode {
+        const siblings:TreeNode[] = this.getSiblingNodes();
+        if (this.index < siblings.length - 1) {
+            return siblings[this.index + 1];
+        }
+        return null;
+    }
+
+    private getPreviousSibling():TreeNode {
+        const siblings:TreeNode[] = this.getSiblingNodes();
+        if (this.index > 0) {
+            return siblings[this.index - 1];
+        }
+        return null;
+    }
+
+    private getLastOpenDescendant(){
+        return this.isExpanded() ? this.children[this.children.length - 1].getLastOpenDescendant() : this;
+    }
+
     getPreviousNode():TreeNode {
         if (this.isRootNode()) {
             return null;
         }
-        if (this.index > 0) {
-            return this.getSiblingNodes()[this.index - 1];
+        const previousSibling:TreeNode = this.getPreviousSibling();
+        if (previousSibling){
+            return previousSibling .getLastOpenDescendant();
         }
         return this.parent;
     }
 
     getNextNode():TreeNode {
-        if (this.isRootNode()) {
-            return null;
+        if (this.expanded && this.children.length){
+            return this.children[0];
         }
-        const siblings:TreeNode[] = this.getSiblingNodes();
-        if (this.index < siblings.length - 1) {
-            return this.getSiblingNodes()[this.index + 1];
+        let current: TreeNode = this;
+        while(current){
+            const parentNextSibling:TreeNode = current.getNextSibling();
+            if (parentNextSibling){
+                return parentNextSibling;
+            }
+            current = current.parent;
         }
-        return this.parent.getNextNode();
+        return null;
     }
 
     remove():boolean {
@@ -145,6 +170,22 @@ export class TreeNode implements OnInit, OnDestroy {
         }
         this.expanded = !this.expanded;
         this._onExpandedChanged.next(this.expanded);
+    }
+
+    expand(): boolean {
+        if (!this.expanded){
+            this.toggleExpanded();
+            return true;
+        }
+        return false;
+    }
+
+    collapse(): boolean {
+        if (this.expanded){
+            this.toggleExpanded();
+            return true;
+        }
+        return false;
     }
 
     isExpanded():boolean {

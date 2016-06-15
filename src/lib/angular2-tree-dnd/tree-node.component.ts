@@ -33,8 +33,11 @@ export const DEFAULT_EXPANDED:string = "DEFAULT_EXPANDED";
     selector: 'tree-node',
     directives: [TreeNodeContent, TreeNodeChildren],
     template: `
+        <div><!-- my parent my index--></div>
         <tree-node-content [node]="$this"></tree-node-content>
         <tree-node-children [node]="$this"></tree-node-children>
+        <div><!-- if no children, me index = 0 --></div>
+        <div><!-- my parent my index +1 --></div>
         `
 })
 export class TreeNode implements OnInit, OnDestroy {
@@ -81,6 +84,10 @@ export class TreeNode implements OnInit, OnDestroy {
 
     getChildrenDataCount():number {
         return this.treeService.getChildrenDataCount(this);
+    }
+
+    addChildData(index:number, data:any):void{
+        this.data.splice(index, 0, data);
     }
 
     registerChildNode(child:TreeNode) {

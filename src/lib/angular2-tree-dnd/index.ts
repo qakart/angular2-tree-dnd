@@ -12,3 +12,5 @@ export * from './default-tree-node-children-renderer.component';
 export * from './tree-node-children-renderer';
 export * from './tree-node-content-renderer';
 export * from './key/keyboard-navigation.component.ts';
+export * from './dnd/dnd.service';
+export * from './dnd/default-dnd.service';

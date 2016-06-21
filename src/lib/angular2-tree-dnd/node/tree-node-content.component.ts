@@ -1,5 +1,5 @@
 import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, OnInit} from 'angular2/core';
-import {TreeService, TreeNode, TreeNodeContentRenderer} from './index';
+import {TreeService, TreeNode, TreeNodeContentRenderer} from '../index';
 
 @Component({
   selector: 'tree-node-content',

@@ -1,5 +1,5 @@
 import { Component, Input, EventEmitter, OnInit, OnDestroy} from 'angular2/core';
-import { TreeNode, TreeNodeChildrenRenderer} from './index'
+import { TreeNode, TreeNodeChildrenRenderer} from '../index'
 import {Subscription} from 'rxjs/Subscription'
 
 @Component({

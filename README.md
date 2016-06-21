@@ -3,9 +3,9 @@ From of the [angular2-webpack-starter](https://github.com/angularclass/angular2-
 
 TODO :
 - dnd
-  - treeNode.addChild(data)
-  - default dnd service
-  - placeholders
+  - placeholders css depending on dnd state
+  - fix empty dropped node data
+  - fix remove dragged node
 - drag menu
 - drop trash
 - dnd across 2 trees (copy | move)

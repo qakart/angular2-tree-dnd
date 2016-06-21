@@ -1,6 +1,18 @@
-import { Component, forwardRef } from '@angular/core';
+import {Component, forwardRef} from '@angular/core';
 import {LazyTreeService, SelectedNode} from './index';
-import { TreeService, RENDERED_FIELD_NAME,ID_FIELD_NAME, DEFAULT_EXPANDED, TreeNode,IdService, FieldIdService, SingleSelectionService, SelectionService} from '../../lib/angular2-tree-dnd/index';
+import {
+    TreeService,
+    RENDERED_FIELD_NAME,
+    ID_FIELD_NAME,
+    DEFAULT_EXPANDED,
+    TreeNode,
+    IdService,
+    FieldIdService,
+    SingleSelectionService,
+    SelectionService,
+    DelayChildrenLoaderService,
+    ChildrenLoaderService
+} from '../../lib/angular2-tree-dnd/index';
 
 @Component({
     selector: 'lazy',
@@ -8,6 +20,7 @@ import { TreeService, RENDERED_FIELD_NAME,ID_FIELD_NAME, DEFAULT_EXPANDED, TreeN
         {provide: ID_FIELD_NAME, useValue: 'id'},
         {provide: IdService, useClass: FieldIdService},
         {provide: TreeService, useClass: LazyTreeService},
+        {provide: ChildrenLoaderService, useClass: DelayChildrenLoaderService},
         {provide: SelectionService, useClass: SingleSelectionService},
         {provide: RENDERED_FIELD_NAME, useValue: 'name'},
         {provide: DEFAULT_EXPANDED, useValue: false}

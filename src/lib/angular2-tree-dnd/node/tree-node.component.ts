@@ -1,7 +1,6 @@
 import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, Optional, OnInit, OnDestroy} from 'angular2/core';
-import {TreeNodeContent, TreeService, TreeNodeChildrenRenderer} from './index';
+import {TreeNodeContent, TreeService, TreeNodeChildrenRenderer, DragAndDropService, ChildrenLoaderService} from '../index';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Observable} from 'rxjs/Observable';
 import {Subscription} from 'rxjs/Subscription';
 
 /**
@@ -32,12 +31,18 @@ export const DEFAULT_EXPANDED:string = "DEFAULT_EXPANDED";
 @Component({
     selector: 'tree-node',
     directives: [TreeNodeContent, TreeNodeChildren],
+    styles: [`
+    .dropZone{
+        width: 100%;
+        height: 10px;
+        border: 1px solid red;
+    }
+  `],
     template: `
-        <div><!-- my parent my index--></div>
-        <tree-node-content [node]="$this"></tree-node-content>
+        <tree-node-content  [node]="$this"></tree-node-content>
         <tree-node-children [node]="$this"></tree-node-children>
-        <div><!-- if no children, me index = 0 --></div>
-        <div><!-- my parent my index +1 --></div>
+        <div class="dropZone dropAsChildZone" *ngIf="isDndAvailable()" (drop)="dropAsChild($event)" (dragover)="allowDropAsChild($event)"><!-- me index = 0 decallé --></div>
+        <div class="dropZone dropAsNextZone" *ngIf="isDndAvailable()" (drop)="dropAsNextSibling($event)" (dragover)="allowDropAsNextSibling($event)"><!-- my parent my index +1 --></div>
         `
 })
 export class TreeNode implements OnInit, OnDestroy {
@@ -57,7 +62,7 @@ export class TreeNode implements OnInit, OnDestroy {
     private _onSelectedChanged:BehaviorSubject<boolean>;
     private selected:boolean;
 
-    constructor(private treeService:TreeService, @Optional() @Inject(DEFAULT_EXPANDED) private defaultExpanded:boolean) {
+    constructor(private treeService:TreeService, private childrenLoaderService:ChildrenLoaderService, @Optional() private dndService:DragAndDropService, @Optional() @Inject(DEFAULT_EXPANDED) private defaultExpanded:boolean) {
         this.$this = this;
         this.expanded = !!defaultExpanded;
         this._onExpandedChanged = new BehaviorSubject(this.expanded);
@@ -78,16 +83,46 @@ export class TreeNode implements OnInit, OnDestroy {
         return this.id;
     }
 
+    //------------------------------ DND ------------------------------//
+    // drop:(parent:TreeNode, index:number, $event:any) => void;
+    // drag:(node:TreeNode, $event:any)=>void;
+    // allowDrop:(parent:TreeNode, index:number, $event:any)=>void;
+    isDndAvailable(): boolean {
+        return !!this.dndService;
+    }
+
+    drag($event: any):void {
+        this.dndService.drag(this, $event);
+    }
+
+    allowDropAsChild($event: any):void {
+        this.dndService.allowDrop(this, 0, $event);
+    }
+
+    allowDropAsNextSibling($event: any):void {
+        this.dndService.allowDrop(this.parent, this.index+1, $event);
+    }
+
+    dropAsChild($event: any):void {
+        this.dndService.drop(this, 0, $event);
+    }
+
+    dropAsNextSibling($event: any):void {
+        this.dndService.drop(this.parent, this.index+1, $event);
+    }
+
+    //------------------------------ Parent, Siblings and Children access ------------------------------//
+    //TODO Create a childrenLoader    
     getChildrenData():any {
-        return this.treeService.getChildrenData(this);
+        return this.childrenLoaderService.getChildrenData(this);
     }
 
     getChildrenDataCount():number {
-        return this.treeService.getChildrenDataCount(this);
+        return this.childrenLoaderService.getChildrenDataCount(this);
     }
 
     addChildData(index:number, data:any):void{
-        this.data.splice(index, 0, data);
+        this.childrenLoaderService.addChildData(this, index, data);
     }
 
     registerChildNode(child:TreeNode) {

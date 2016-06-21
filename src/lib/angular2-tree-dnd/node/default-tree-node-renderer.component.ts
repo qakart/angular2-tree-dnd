@@ -1,5 +1,5 @@
-import { Component, Input, Inject, OnInit, OnDestroy} from 'angular2/core';
-import { TreeNode } from './index'
+import {Component, Input, Inject, OnInit, OnDestroy} from 'angular2/core';
+import {TreeNode, DefaultDragHandle} from '../index'
 import {TreeNodeContentRenderer} from "./tree-node-content-renderer";
 import {Subscription} from 'rxjs/Subscription'
 
@@ -23,9 +23,11 @@ export const RENDERED_FIELD_NAME = "RENDERED_FIELD_NAME";
         border: 1px solid blue;
     }
   `],
+    directives: [DefaultDragHandle],
     template: `
-    <div class="tree-node-content">
+    <div class="tree-node-content" >
         <button *ngIf="node.getChildrenDataCount() > 0" (click)="node.toggleExpanded()">{{buttonIcon}}</button>
+        <default-drag-handle [node]="node"></default-drag-handle>
         <span class="tree-node-content-label" [class.tree-node-content-label-selected]="selected" (click)="node.toggleSelected()">{{node.data[fieldName]}}</span>
     </div>`
 })
@@ -33,8 +35,8 @@ export class DefaultTreeNodeRenderer implements TreeNodeContentRenderer, OnInit,
     @Input() node:TreeNode;
 
     private buttonIcon:string;
-    private expandedSubscription: Subscription;
-    private selectedSubscription: Subscription;
+    private expandedSubscription:Subscription;
+    private selectedSubscription:Subscription;
     private selected:boolean = false;
 
     constructor(@Inject(RENDERED_FIELD_NAME) private fieldName:string) {
@@ -57,7 +59,7 @@ export class DefaultTreeNodeRenderer implements TreeNodeContentRenderer, OnInit,
         this.selectedSubscription = this.node.onSelectedChanged((selected:boolean) => this.onSelectedChanged(selected));
     }
 
-    ngOnDestroy(){
+    ngOnDestroy() {
         this.expandedSubscription.unsubscribe();
         this.selectedSubscription.unsubscribe();
     }

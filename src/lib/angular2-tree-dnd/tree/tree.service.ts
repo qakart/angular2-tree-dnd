@@ -1,13 +1,11 @@
 import {Type} from 'angular2/core';
-import {TreeNode, IdService, SelectionService} from './index'
+import {TreeNode, IdService, SelectionService } from '../index'
 
 export abstract class TreeService {
-    ids: IdService;
-    selection: SelectionService;
+    idService: IdService;
+    selectionService: SelectionService;
     getTreeNodeContentRenderer : (node:TreeNode) => Type | any;
     getTreeNodeChildrenRenderer : (node:TreeNode) => Type | any;
-    getChildrenData: (node:TreeNode) => any;
-    getChildrenDataCount: (node:TreeNode) => number;
     register: (node:TreeNode) => string;
     unregister: (node:TreeNode) => void;
     getNodeById: (id:string) => void;

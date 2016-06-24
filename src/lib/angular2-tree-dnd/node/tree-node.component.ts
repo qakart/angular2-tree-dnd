@@ -12,6 +12,7 @@ import {
     AfterViewInit
 } from 'angular2/core';
 import {
+    TransferableNode,
     DropZone,
     RegisterService,
     RendererService,
@@ -29,7 +30,7 @@ export const DEFAULT_EXPANDED:string = "DEFAULT_EXPANDED";
     selector: 'tree-node',
     template: ``
 })
-export class TreeNode implements OnInit, AfterViewInit  {
+export class TreeNode implements TransferableNode, OnInit, AfterViewInit  {
 
     @Input() data:any;
     @Input() parent:TreeNode;

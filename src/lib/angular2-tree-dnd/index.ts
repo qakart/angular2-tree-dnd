@@ -11,6 +11,8 @@ export * from './register/register.service';
 export * from './renderer/default-renderer.service';
 export * from './renderer/renderer.service';
 export * from './dnd/default-dnd.service';
+export * from './dnd/simple-transferable-node';
+export * from './dnd/transferable-node';
 export * from './dnd/dnd.service';
 export * from './dnd/default-drag-handle.component';
 export * from './dnd/drop-zone.component';

@@ -6,5 +6,5 @@ export abstract class RegisterService {
     selectionService: SelectionService;
     register: (node:TreeNode) => string;
     unregister: (node:TreeNode) => void;
-    getNodeById: (id:string) => void;
+    getNodeById: (id:string) => TreeNode;
 }

@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
-import {RegisterService, TreeNode, IdService, SelectionService} from '../index';
+import {RegisterService, TreeNode, IdService, SelectionService} from '../';
 
 @Injectable()
 export class DefaultRegisterService implements RegisterService {
 
-    private nodesById: {[key:string]:TreeNode} = {};
+    private nodesById:{[key:string]:TreeNode} = {};
 
-    idService: IdService;
-    selectionService: SelectionService;
+    idService:IdService;
+    selectionService:SelectionService;
 
-    constructor(idService: IdService, selectionService: SelectionService){
+    constructor(idService:IdService, selectionService:SelectionService) {
         this.idService = idService;
         this.selectionService = selectionService;
     }
@@ -17,7 +17,7 @@ export class DefaultRegisterService implements RegisterService {
     register(node:TreeNode):string {
         node.onSelectedChanged((selected:boolean) => this.selectionService.onSelectedChanged(node, selected));
 
-        if (node.parent){
+        if (node.parent) {
             node.parent.registerChildNode(node);
         }
 
@@ -27,18 +27,18 @@ export class DefaultRegisterService implements RegisterService {
     }
 
     unregister(node:TreeNode):void {
-        console.log('unregister '+node.getId());
+        console.log('unregister ' + node.getId());
         // TODO add a method in the selectionService to unselect a node (to handle multiple selections)
-        if (this.selectionService.getSelectedNode()=== node){
+        if (this.selectionService.getSelectedNode() === node) {
             //setTimeout(() => {
-                // Deselect node
-                this.selectionService.setSelectedNode(undefined);
+            // Deselect node
+            this.selectionService.setSelectedNode(undefined);
             //}, 0);
         }
         delete this.nodesById[node.getId()];
     }
 
-    getNodeById(id:string):TreeNode{
+    getNodeById(id:string):TreeNode {
         return this.nodesById[id];
     }
 }

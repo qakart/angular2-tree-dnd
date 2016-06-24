@@ -1,6 +1,13 @@
-import {TreeNode, DragAndDropService} from '../index'
+import {Injectable} from '@angular/core';
+import {TreeNode, DragAndDropService, RegisterService, TransferableNode} from '../'
 
+@Injectable()
 export class DefaultDragAndDropService implements DragAndDropService {
+
+    private transferableNode:TransferableNode;
+
+    constructor(private register:RegisterService) {
+    }
 
     dropNode(parent:TreeNode, index:number, childData:any) {
         parent.addChildData(index, childData);
@@ -8,40 +15,47 @@ export class DefaultDragAndDropService implements DragAndDropService {
 
     drop(parent:TreeNode, index:number, $event:any):void {
         $event.preventDefault();
-        const data:any = $event.dataTransfer.getData("data");
-        const node:TreeNode = $event.dataTransfer.getData("node");
-        // TODO Fix this
-        // if (node) {
-        //     this.dropped(node);
-        // }
-        this.dropNode(parent, index, data);
+        this.onNodeMoved(this.transferableNode);
+        this.dropNode(parent, index, this.transferableNode.data);
+        this.transferableNode = null;
     }
 
-    dropped(node:TreeNode):void {
-        node.remove();
+    onNodeMoved(transferableNode:TransferableNode):void {
+        const node:TreeNode = this.register.getNodeById(transferableNode.getId());
+        // The node can be null if the node is dragged from somewhere else
+        if (node) {
+            node.remove();
+        }
     }
 
-    dragNode(node:TreeNode):any {
-        return node.data;
+    drag(transferableNode:TransferableNode, $event:any):void {
+        this.transferableNode = transferableNode;
+        $event.dataTransfer.setData("text/plain", transferableNode.getId());
     }
 
-    drag(node:TreeNode, $event:any):void {
-        $event.dataTransfer.setData("data", this.dragNode(node));
-        $event.dataTransfer.setData("node", node);
-        // TODO set the node renderer id
-        console.log($event.target.id);
-        // $event.dataTransfer.setData("text", $event.target.id);
-    }
-
-    allowDropNode(parent:TreeNode, childData:any):boolean {
-        console.log("Allow drop node "+ parent.getId());
+    allowDropNode(parent:TreeNode, transferableNode:TransferableNode):boolean {
+        console.log("Allow drop node " + parent.getId());
         return true;
     }
 
     allowDrop(parent:TreeNode, index:number, $event:any):void {
-        // TODO Prevent droping a node as one of its children
-        if (this.allowDropNode(parent, $event.dataTransfer.getData("data"))) {
-            $event.preventDefault();
+        if (!this.transferableNode) {
+            return;
         }
+
+        // Prevent droping a node as one of its children
+        let current:TreeNode = parent;
+        while (current) {
+            if (current === this.transferableNode){
+                return;
+            }  
+            current = current.parent;
+        }
+        
+        if (!this.allowDropNode(parent, this.transferableNode)) {
+            return;
+        }
+        
+        $event.preventDefault();
     }
 }

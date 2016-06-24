@@ -13,7 +13,7 @@ export * from './renderer/renderer.service';
 export * from './dnd/default-dnd.service';
 export * from './dnd/dnd.service';
 export * from './dnd/default-drag-handle.component';
-export * from './node/tree-node-content.component';
+export * from './dnd/drop-zone.component';
 export * from './renderer/default-tree-node-renderer.component.ts';
 export * from './node/tree-node.component';
 export * from './renderer/default-tree-node-children-renderer.component';

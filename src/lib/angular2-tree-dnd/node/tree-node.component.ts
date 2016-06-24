@@ -1,60 +1,42 @@
-import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, Optional, OnInit, OnDestroy} from 'angular2/core';
-import {TreeNodeContent, RegisterService, RendererService, TreeNodeChildrenRenderer, DragAndDropService, ChildrenLoaderService} from '../index';
+import {
+    Component,
+    Input,
+    ComponentResolver,
+    ComponentFactory,
+    ComponentRef,
+    ViewContainerRef,
+    Inject,
+    Optional,
+    OnInit,
+    Type,
+    AfterViewInit
+} from 'angular2/core';
+import {
+    DropZone,
+    RegisterService,
+    RendererService,
+    DragAndDropService,
+    ChildrenLoaderService,
+    TreeNodeChildrenRenderer,
+    TreeNodeContentRenderer
+} from '../';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Subscription} from 'rxjs/Subscription';
-
-/**
- * Can't be placed in its own file as it creates a circular dependency
- */
-@Component({
-    selector: 'tree-node-children',
-    directives: [],
-    template: ``
-})
-export class TreeNodeChildren {
-    @Input() node:TreeNode;
-
-    constructor(private dcl:DynamicComponentLoader,
-                private viewContainerRef:ViewContainerRef,
-                private renderer:RendererService) {
-    }
-
-    ngOnInit() {
-        this.dcl.loadNextToLocation(this.renderer.getTreeNodeChildrenRenderer(this.node), this.viewContainerRef).then((compRef:ComponentRef<TreeNodeChildrenRenderer>) => {
-            compRef.instance['node'] = this.node;
-        });
-    }
-}
 
 export const DEFAULT_EXPANDED:string = "DEFAULT_EXPANDED";
 
 @Component({
     selector: 'tree-node',
-    directives: [TreeNodeContent, TreeNodeChildren],
-    styles: [`
-    .dropZone{
-        width: 100%;
-        height: 10px;
-        border: 1px solid red;
-    }
-  `],
-    template: `
-        <tree-node-content  [node]="$this"></tree-node-content>
-        <tree-node-children [node]="$this"></tree-node-children>
-        <div class="dropZone dropAsChildZone" *ngIf="isDndAvailable()" (drop)="dropAsChild($event)" (dragover)="allowDropAsChild($event)"><!-- me index = 0 decallé --></div>
-        <div class="dropZone dropAsNextZone" *ngIf="isDndAvailable()" (drop)="dropAsNextSibling($event)" (dragover)="allowDropAsNextSibling($event)"><!-- my parent my index +1 --></div>
-        `
+    template: ``
 })
-export class TreeNode implements OnInit, OnDestroy {
+export class TreeNode implements OnInit, AfterViewInit  {
 
     @Input() data:any;
     @Input() parent:TreeNode;
     @Input() index:number;
-    // TODO We must maintain an array of children TreeNodes as the ngOnDestroy is broken since we use a DynamicComponentLoader to load children
     private children:TreeNode[];
 
     private id:string;
-    private $this:TreeNode;
 
     private _onExpandedChanged:BehaviorSubject<boolean>;
     private expanded:boolean;
@@ -62,8 +44,13 @@ export class TreeNode implements OnInit, OnDestroy {
     private _onSelectedChanged:BehaviorSubject<boolean>;
     private selected:boolean;
 
-    constructor(private register:RegisterService, private childrenLoaderService:ChildrenLoaderService, @Optional() private dndService:DragAndDropService, @Optional() @Inject(DEFAULT_EXPANDED) private defaultExpanded:boolean) {
-        this.$this = this;
+    constructor(private componentResolver:ComponentResolver,
+                private viewContainerRef:ViewContainerRef,
+                private register:RegisterService,
+                private renderer:RendererService,
+                private childrenLoaderService:ChildrenLoaderService,
+                @Optional() private dndService:DragAndDropService,
+                @Optional() @Inject(DEFAULT_EXPANDED) private defaultExpanded:boolean) {
         this.expanded = !!defaultExpanded;
         this._onExpandedChanged = new BehaviorSubject(this.expanded);
         this._onSelectedChanged = new BehaviorSubject(this.selected);
@@ -75,44 +62,50 @@ export class TreeNode implements OnInit, OnDestroy {
         this.id = this.register.register(this);
     }
 
-    ngOnDestroy() {
-        // TODO There is a bug in current version of Angular2 => ngOnDestroy is only called for the current node, not for its children.
+    ngAfterViewInit(){
+        if (this.dndService){
+            // Insert drop as next sibling zone
+            this.componentResolver.resolveComponent(<Type>DropZone)
+                .then((componentFactory:ComponentFactory<DropZone>) => {
+                    let componentRef:ComponentRef<DropZone>
+                        = this.viewContainerRef.createComponent(componentFactory, 0, this.viewContainerRef.injector);
+                    componentRef.instance.parent = this.parent;
+                    componentRef.instance.index = this.index + 1;
+                });
+
+            // Insert drop as first child
+            this.componentResolver.resolveComponent(<Type>DropZone)
+                .then((componentFactory:ComponentFactory<DropZone>) => {
+                    let componentRef:ComponentRef<DropZone>
+                        = this.viewContainerRef.createComponent(componentFactory, 0, this.viewContainerRef.injector);
+                    componentRef.instance.parent = this;
+                    componentRef.instance.index = 0;
+                });
+        }
+
+        // Insert children renderer
+        this.componentResolver.resolveComponent(this.renderer.getTreeNodeChildrenRenderer(this))
+            .then((componentFactory:ComponentFactory<TreeNodeChildrenRenderer>) => {
+                let componentRef:ComponentRef<TreeNodeChildrenRenderer>
+                    = this.viewContainerRef.createComponent(componentFactory, 0, this.viewContainerRef.injector);
+                componentRef.instance.node = this;
+            });
+
+        // Insert node renderer
+        this.componentResolver.resolveComponent(this.renderer.getTreeNodeContentRenderer(this))
+            .then((componentFactory:ComponentFactory<TreeNodeContentRenderer>) => {
+                let componentRef:ComponentRef<TreeNodeContentRenderer>
+                    = this.viewContainerRef.createComponent(componentFactory, 0, this.viewContainerRef.injector);
+                componentRef.instance.node = this;
+            });
+
     }
 
     getId():string {
         return this.id;
     }
 
-    //------------------------------ DND ------------------------------//
-    // drop:(parent:TreeNode, index:number, $event:any) => void;
-    // drag:(node:TreeNode, $event:any)=>void;
-    // allowDrop:(parent:TreeNode, index:number, $event:any)=>void;
-    isDndAvailable(): boolean {
-        return !!this.dndService;
-    }
-
-    drag($event: any):void {
-        this.dndService.drag(this, $event);
-    }
-
-    allowDropAsChild($event: any):void {
-        this.dndService.allowDrop(this, 0, $event);
-    }
-
-    allowDropAsNextSibling($event: any):void {
-        this.dndService.allowDrop(this.parent, this.index+1, $event);
-    }
-
-    dropAsChild($event: any):void {
-        this.dndService.drop(this, 0, $event);
-    }
-
-    dropAsNextSibling($event: any):void {
-        this.dndService.drop(this.parent, this.index+1, $event);
-    }
-
     //------------------------------ Parent, Siblings and Children access ------------------------------//
-    //TODO Create a childrenLoader    
     getChildrenData():any {
         return this.childrenLoaderService.getChildrenData(this);
     }
@@ -121,7 +114,7 @@ export class TreeNode implements OnInit, OnDestroy {
         return this.childrenLoaderService.getChildrenDataCount(this);
     }
 
-    addChildData(index:number, data:any):void{
+    addChildData(index:number, data:any):void {
         this.childrenLoaderService.addChildData(this, index, data);
     }
 
@@ -129,7 +122,7 @@ export class TreeNode implements OnInit, OnDestroy {
         this.children[child.index] = child;
     }
 
-    isRootNode(): boolean {
+    isRootNode():boolean {
         return !this.parent;
     }
 
@@ -156,7 +149,7 @@ export class TreeNode implements OnInit, OnDestroy {
         return null;
     }
 
-    private getLastOpenDescendant(){
+    private getLastOpenDescendant() {
         return this.isExpanded() ? this.children[this.children.length - 1].getLastOpenDescendant() : this;
     }
 
@@ -165,20 +158,20 @@ export class TreeNode implements OnInit, OnDestroy {
             return null;
         }
         const previousSibling:TreeNode = this.getPreviousSibling();
-        if (previousSibling){
+        if (previousSibling) {
             return previousSibling .getLastOpenDescendant();
         }
         return this.parent;
     }
 
     getNextNode():TreeNode {
-        if (this.expanded && this.children.length){
+        if (this.expanded && this.children.length) {
             return this.children[0];
         }
-        let current: TreeNode = this;
-        while(current){
+        let current:TreeNode = this;
+        while (current) {
             const parentNextSibling:TreeNode = current.getNextSibling();
-            if (parentNextSibling){
+            if (parentNextSibling) {
                 return parentNextSibling;
             }
             current = current.parent;
@@ -214,16 +207,16 @@ export class TreeNode implements OnInit, OnDestroy {
         this._onExpandedChanged.next(this.expanded);
     }
 
-    expand(): boolean {
-        if (!this.expanded){
+    expand():boolean {
+        if (!this.expanded) {
             this.toggleExpanded();
             return true;
         }
         return false;
     }
 
-    collapse(): boolean {
-        if (this.expanded){
+    collapse():boolean {
+        if (this.expanded) {
             this.toggleExpanded();
             return true;
         }

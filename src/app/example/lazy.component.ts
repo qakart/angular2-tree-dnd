@@ -1,7 +1,9 @@
 import {Component, forwardRef} from '@angular/core';
-import {LazyTreeService, SelectedNode} from './index';
+import {LazyRendererService, SelectedNode} from './index';
 import {
-    TreeService,
+    RendererService,
+    RegisterService,
+    DefaultRegisterService,
     RENDERED_FIELD_NAME,
     ID_FIELD_NAME,
     DEFAULT_EXPANDED,
@@ -18,8 +20,9 @@ import {
     selector: 'lazy',
     providers: [
         {provide: ID_FIELD_NAME, useValue: 'id'},
+        {provide: RendererService, useClass: LazyRendererService},
+        {provide: RegisterService, useClass: DefaultRegisterService},
         {provide: IdService, useClass: FieldIdService},
-        {provide: TreeService, useClass: LazyTreeService},
         {provide: ChildrenLoaderService, useClass: DelayChildrenLoaderService},
         {provide: SelectionService, useClass: SingleSelectionService},
         {provide: RENDERED_FIELD_NAME, useValue: 'name'},

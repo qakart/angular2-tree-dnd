@@ -1,5 +1,5 @@
 import { Component, Input, DynamicComponentLoader, ComponentRef, ViewContainerRef, Inject, Optional, OnInit, OnDestroy} from 'angular2/core';
-import {TreeNodeContent, TreeService, TreeNodeChildrenRenderer, DragAndDropService, ChildrenLoaderService} from '../index';
+import {TreeNodeContent, RegisterService, RendererService, TreeNodeChildrenRenderer, DragAndDropService, ChildrenLoaderService} from '../index';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Subscription} from 'rxjs/Subscription';
 
@@ -16,11 +16,11 @@ export class TreeNodeChildren {
 
     constructor(private dcl:DynamicComponentLoader,
                 private viewContainerRef:ViewContainerRef,
-                private treeService:TreeService) {
+                private renderer:RendererService) {
     }
 
     ngOnInit() {
-        this.dcl.loadNextToLocation(this.treeService.getTreeNodeChildrenRenderer(this.node), this.viewContainerRef).then((compRef:ComponentRef<TreeNodeChildrenRenderer>) => {
+        this.dcl.loadNextToLocation(this.renderer.getTreeNodeChildrenRenderer(this.node), this.viewContainerRef).then((compRef:ComponentRef<TreeNodeChildrenRenderer>) => {
             compRef.instance['node'] = this.node;
         });
     }
@@ -62,7 +62,7 @@ export class TreeNode implements OnInit, OnDestroy {
     private _onSelectedChanged:BehaviorSubject<boolean>;
     private selected:boolean;
 
-    constructor(private treeService:TreeService, private childrenLoaderService:ChildrenLoaderService, @Optional() private dndService:DragAndDropService, @Optional() @Inject(DEFAULT_EXPANDED) private defaultExpanded:boolean) {
+    constructor(private register:RegisterService, private childrenLoaderService:ChildrenLoaderService, @Optional() private dndService:DragAndDropService, @Optional() @Inject(DEFAULT_EXPANDED) private defaultExpanded:boolean) {
         this.$this = this;
         this.expanded = !!defaultExpanded;
         this._onExpandedChanged = new BehaviorSubject(this.expanded);
@@ -72,7 +72,7 @@ export class TreeNode implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.id = this.treeService.register(this);
+        this.id = this.register.register(this);
     }
 
     ngOnDestroy() {
@@ -197,7 +197,7 @@ export class TreeNode implements OnInit, OnDestroy {
             child.remove();
         }
 
-        this.treeService.unregister(this);
+        this.register.unregister(this);
         // Delete node data from parent's children
         const siblingsData:any = this.parent.getChildrenData();
         siblingsData.splice(this.index, 1);

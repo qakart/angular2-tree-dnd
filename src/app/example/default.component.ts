@@ -1,8 +1,10 @@
 import {Component} from '@angular/core';
 import {SelectedNode} from './index';
 import {
-    TreeService,
-    DefaultTreeService,
+    RendererService,
+    DefaultRendererService,
+    RegisterService,
+    DefaultRegisterService,
     RENDERED_FIELD_NAME,
     DEFAULT_EXPANDED,
     TreeNode,
@@ -22,11 +24,11 @@ import {DnD} from './dnd.component'
     selector: 'default',
     providers: [
         {provide: IdService, useClass: SimpleIdService},
-        {provide: TreeService, useClass: DefaultTreeService},
         {provide: SelectionService, useClass: SingleSelectionService},
         {provide: DragAndDropService, useClass: DefaultDragAndDropService},
         {provide: ChildrenLoaderService, useClass: DefaultChildrenLoaderService},
-        //{provide: TreeService, useValue: new DefaultTreeService(new SimpleIdService(), new SingleSelectionService())},
+        {provide: RendererService, useClass: DefaultRendererService},
+        {provide: RegisterService, useClass: DefaultRegisterService},
         {provide: RENDERED_FIELD_NAME, useValue: 'name'},
         {provide: DEFAULT_EXPANDED, useValue: false}
     ],

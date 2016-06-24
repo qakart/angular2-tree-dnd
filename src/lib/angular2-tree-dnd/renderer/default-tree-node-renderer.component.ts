@@ -1,6 +1,6 @@
 import {Component, Input, Inject, OnInit, OnDestroy} from 'angular2/core';
 import {TreeNode, DefaultDragHandle} from '../index'
-import {TreeNodeContentRenderer} from "./tree-node-content-renderer";
+import {TreeNodeContentRenderer} from "../node/tree-node-content-renderer";
 import {Subscription} from 'rxjs/Subscription'
 
 export const RENDERED_FIELD_NAME = "RENDERED_FIELD_NAME";

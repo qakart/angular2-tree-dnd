@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {DefaultTreeNodeRenderer, TreeService, TreeNode, DefaultTreeNodeChildrenRenderer, IdService, SelectionService} from '../index';
+import {RegisterService, TreeNode, IdService, SelectionService} from '../index';
 
 @Injectable()
-export class DefaultTreeService implements TreeService {
+export class DefaultRegisterService implements RegisterService {
 
     private nodesById: {[key:string]:TreeNode} = {};
 
@@ -12,14 +12,6 @@ export class DefaultTreeService implements TreeService {
     constructor(idService: IdService, selectionService: SelectionService){
         this.idService = idService;
         this.selectionService = selectionService;
-    }
-
-    getTreeNodeContentRenderer(node:TreeNode):any {
-        return DefaultTreeNodeRenderer;
-    }
-
-    getTreeNodeChildrenRenderer(node:TreeNode):any {
-        return DefaultTreeNodeChildrenRenderer;
     }
 
     register(node:TreeNode):string {

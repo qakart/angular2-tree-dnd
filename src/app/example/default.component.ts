@@ -18,7 +18,6 @@ import {
     ChildrenLoaderService,
     DefaultChildrenLoaderService
 } from '../../lib/angular2-tree-dnd/index';
-import {DnD} from './dnd.component'
 
 @Component({
     selector: 'default',
@@ -32,7 +31,7 @@ import {DnD} from './dnd.component'
         {provide: RENDERED_FIELD_NAME, useValue: 'name'},
         {provide: DEFAULT_EXPANDED, useValue: false}
     ],
-    directives: [TreeNode, SelectedNode, KeyboardNavigation, DnD],
+    directives: [TreeNode, SelectedNode, KeyboardNavigation],
     pipes: [],
     styles: [`
   md-card{
@@ -55,12 +54,11 @@ import {DnD} from './dnd.component'
       </button>
       <keyboard-navigation></keyboard-navigation>
       <!--TODO display json in right column-->
-      <!--<pre>-->
-      <!--<code>-->
-      <!--{{data | json}}-->
-      <!--</code>-->
-      <!--</pre>-->
-      <dnd></dnd>
+      <pre>
+      <code>
+      {{data | json}}
+      </code>
+      </pre>
     </md-card-content>
   </md-card>
   `

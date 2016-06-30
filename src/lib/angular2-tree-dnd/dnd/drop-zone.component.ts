@@ -18,7 +18,7 @@ import {
     }
   `],
     template: `
-        <div class="dropZone" (drop)="dndService.drop(parent, index, $event)" (dragover)="dndService.allowDrop(parent, index, $event)"></div>
+        <div class="dropZone" (drop)="dndService.drop(parent, index, $event)" (dragover)="dndService.allowDrop(parent, index, $event)">{{index}}</div>
         `
 })
 export class DropZone {

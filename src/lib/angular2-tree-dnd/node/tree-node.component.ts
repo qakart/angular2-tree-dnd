@@ -1,25 +1,21 @@
 import {
     Component,
     Input,
-    ComponentResolver,
-    ComponentFactory,
-    ComponentRef,
-    ViewContainerRef,
     Inject,
     Optional,
     OnInit,
-    Type,
-    AfterViewInit
+    ViewChildren,
+    QueryList,
+    forwardRef
 } from 'angular2/core';
 import {
     TransferableNode,
     DropZone,
+    TreeNodeContent,
     RegisterService,
     RendererService,
     DragAndDropService,
-    ChildrenLoaderService,
-    TreeNodeChildrenRenderer,
-    TreeNodeContentRenderer
+    ChildrenLoaderService
 } from '../';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Subscription} from 'rxjs/Subscription';
@@ -28,14 +24,34 @@ export const DEFAULT_EXPANDED:string = "DEFAULT_EXPANDED";
 
 @Component({
     selector: 'tree-node',
-    template: ``
+    directives: [DropZone, TreeNode, forwardRef(() => TreeNodeContent)],
+    styles: [`
+/*TODO renderer service should give us the left margin ?*/
+      .tree-node-children {
+        margin-left: 20px;
+    }
+  `],
+    template: `
+    <tree-node-content [node]="_this"></tree-node-content>
+    <div class="tree-node-children">
+        <drop-zone *ngIf="dndService" [parent]="_this" [index]="0"></drop-zone>
+        <div [hidden]="!expanded">
+            <div *ngFor="let child of getChildrenData(); let i = index">
+              <tree-node [parent]="_this" [data]="child" [index]="i"></tree-node>
+              <drop-zone *ngIf="dndService" [parent]="_this" [index]="i + 1"></drop-zone>
+            </div>
+        </div>
+    </div>
+`
 })
-export class TreeNode implements TransferableNode, OnInit, AfterViewInit  {
+export class TreeNode implements TransferableNode, OnInit {
 
     @Input() data:any;
     @Input() parent:TreeNode;
     @Input() index:number;
-    private children:TreeNode[];
+    // TODO Use a viewQuery ?
+    @ViewChildren(TreeNode)
+    private children: QueryList<TreeNode>;
 
     private id:string;
 
@@ -44,62 +60,19 @@ export class TreeNode implements TransferableNode, OnInit, AfterViewInit  {
 
     private _onSelectedChanged:BehaviorSubject<boolean>;
     private selected:boolean;
+    private _this = this;
 
-    constructor(private componentResolver:ComponentResolver,
-                private viewContainerRef:ViewContainerRef,
-                private register:RegisterService,
-                private renderer:RendererService,
+    constructor(private register:RegisterService,
                 private childrenLoaderService:ChildrenLoaderService,
                 @Optional() private dndService:DragAndDropService,
                 @Optional() @Inject(DEFAULT_EXPANDED) private defaultExpanded:boolean) {
         this.expanded = !!defaultExpanded;
         this._onExpandedChanged = new BehaviorSubject(this.expanded);
         this._onSelectedChanged = new BehaviorSubject(this.selected);
-
-        this.children = [];
     }
 
     ngOnInit() {
         this.id = this.register.register(this);
-    }
-
-    ngAfterViewInit(){
-        if (this.dndService){
-            // Insert drop as next sibling zone
-            this.componentResolver.resolveComponent(<Type>DropZone)
-                .then((componentFactory:ComponentFactory<DropZone>) => {
-                    let componentRef:ComponentRef<DropZone>
-                        = this.viewContainerRef.createComponent(componentFactory, 0, this.viewContainerRef.injector);
-                    componentRef.instance.parent = this.parent;
-                    componentRef.instance.index = this.index + 1;
-                });
-
-            // Insert drop as first child
-            this.componentResolver.resolveComponent(<Type>DropZone)
-                .then((componentFactory:ComponentFactory<DropZone>) => {
-                    let componentRef:ComponentRef<DropZone>
-                        = this.viewContainerRef.createComponent(componentFactory, 0, this.viewContainerRef.injector);
-                    componentRef.instance.parent = this;
-                    componentRef.instance.index = 0;
-                });
-        }
-
-        // Insert children renderer
-        this.componentResolver.resolveComponent(this.renderer.getTreeNodeChildrenRenderer(this))
-            .then((componentFactory:ComponentFactory<TreeNodeChildrenRenderer>) => {
-                let componentRef:ComponentRef<TreeNodeChildrenRenderer>
-                    = this.viewContainerRef.createComponent(componentFactory, 0, this.viewContainerRef.injector);
-                componentRef.instance.node = this;
-            });
-
-        // Insert node renderer
-        this.componentResolver.resolveComponent(this.renderer.getTreeNodeContentRenderer(this))
-            .then((componentFactory:ComponentFactory<TreeNodeContentRenderer>) => {
-                let componentRef:ComponentRef<TreeNodeContentRenderer>
-                    = this.viewContainerRef.createComponent(componentFactory, 0, this.viewContainerRef.injector);
-                componentRef.instance.node = this;
-            });
-
     }
 
     getId():string {
@@ -107,6 +80,10 @@ export class TreeNode implements TransferableNode, OnInit, AfterViewInit  {
     }
 
     //------------------------------ Parent, Siblings and Children access ------------------------------//
+    isRootNode():boolean {
+        return !this.parent;
+    }
+
     getChildrenData():any {
         return this.childrenLoaderService.getChildrenData(this);
     }
@@ -119,17 +96,9 @@ export class TreeNode implements TransferableNode, OnInit, AfterViewInit  {
         this.childrenLoaderService.addChildData(this, index, data);
     }
 
-    registerChildNode(child:TreeNode) {
-        this.children[child.index] = child;
-    }
-
-    isRootNode():boolean {
-        return !this.parent;
-    }
-
     getSiblingNodes():TreeNode[] {
         if (this.parent) {
-            return this.parent.children;
+            return this.parent.children.toArray();
         }
         return [];
     }
@@ -151,7 +120,7 @@ export class TreeNode implements TransferableNode, OnInit, AfterViewInit  {
     }
 
     private getLastOpenDescendant() {
-        return this.isExpanded() ? this.children[this.children.length - 1].getLastOpenDescendant() : this;
+        return this.isExpanded() ? this.children.last.getLastOpenDescendant() : this;
     }
 
     getPreviousNode():TreeNode {
@@ -167,7 +136,7 @@ export class TreeNode implements TransferableNode, OnInit, AfterViewInit  {
 
     getNextNode():TreeNode {
         if (this.expanded && this.children.length) {
-            return this.children[0];
+            return this.children.first;
         }
         let current:TreeNode = this;
         while (current) {
@@ -181,14 +150,9 @@ export class TreeNode implements TransferableNode, OnInit, AfterViewInit  {
     }
 
     remove():boolean {
-        if (!this.parent) {
+        if (this.isRootNode()) {
             console.log("Root node cannot be removed.");
             return false;
-        }
-
-        // Recursively remove children as the ngOnDestroy is broken
-        for (var child of this.children) {
-            child.remove();
         }
 
         this.register.unregister(this);

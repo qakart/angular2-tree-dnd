@@ -19,7 +19,7 @@ import { Default, Lazy } from './index';
     template: `
   <div class="card-container">
   <default></default>
-  <lazy></lazy>
+  <!--<lazy></lazy>-->
   </div>
   `
 })

@@ -16,11 +16,6 @@ export class DefaultRegisterService implements RegisterService {
 
     register(node:TreeNode):string {
         node.onSelectedChanged((selected:boolean) => this.selectionService.onSelectedChanged(node, selected));
-
-        if (node.parent) {
-            node.parent.registerChildNode(node);
-        }
-
         const id:string = this.idService.generateUniqueId(node);
         this.nodesById[id] = node;
         return id;

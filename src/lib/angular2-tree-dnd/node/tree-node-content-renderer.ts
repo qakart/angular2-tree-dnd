@@ -1,5 +1,4 @@
-import {OpaqueToken, Type} from 'angular2/core';
-import {TreeNode} from '../index'
+import {TreeNode} from '../'
 
 export interface TreeNodeContentRenderer{
   node: TreeNode;

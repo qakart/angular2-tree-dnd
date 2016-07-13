@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfe8fe86-2e99-4959-a2ac-6aa7375e7283" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-content.component.ts" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/example/dnd.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree/default-tree.service.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree/tree.service.ts" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/example/default.component.ts" afterPath="$PROJECT_DIR$/src/app/example/default.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/example/example.component.ts" afterPath="$PROJECT_DIR$/src/app/example/example.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/drop-zone.component.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/drop-zone.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-children-renderer.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-children-renderer.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-content-renderer.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-content-renderer.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node.component.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/register/default-register.service.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/register/default-register.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/renderer/default-tree-node-renderer.component.ts" afterPath="$PROJECT_DIR$/src/lib/angular2-tree-dnd/renderer/default-tree-node-renderer.component.ts" />
     </list>
     <ignored path="angular-tree-dnd.iws" />
@@ -24,7 +19,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -34,18 +28,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tree-node.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tree-node.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+            <state relative-caret-position="87">
+              <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
               <folding>
                 <element signature="e#0#144#0" expanded="true" />
-                <marker date="1467321876609" expanded="true" signature="693:727" ph="{...}" />
-                <marker date="1467321876609" expanded="true" signature="844:1249" ph="..." />
-                <marker date="1467321876609" expanded="true" signature="959:1238" ph="..." />
-                <marker date="1467321876609" expanded="true" signature="1032:1223" ph="..." />
+                <marker date="1468415810024" expanded="true" signature="695:737" ph="{...}" />
+                <marker date="1468415810024" expanded="true" signature="765:804" ph="{...}" />
+                <marker date="1468415810024" expanded="true" signature="947:1352" ph="..." />
+                <marker date="1468415810024" expanded="true" signature="1062:1341" ph="..." />
+                <marker date="1468415810024" expanded="true" signature="1135:1326" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tree-node-children-renderer.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-children-renderer.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="41" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,7 +58,7 @@
       <file leaf-file-name="default-register.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/register/default-register.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
+            <state relative-caret-position="306">
               <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -62,31 +67,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="query_list.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/@angular/core/src/linker/query_list.d.ts">
+      <file leaf-file-name="drop-zone.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/drop-zone.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+            <state relative-caret-position="450">
+              <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+                <marker date="1468416443536" expanded="true" signature="213:349" ph="{...}" />
+                <marker date="1468416443536" expanded="true" signature="405:574" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="metadata.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/@angular/core/src/metadata.d.ts">
+      <file leaf-file-name="tree-node-content-renderer.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-content-renderer.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="1109" column="60" selection-start-line="1109" selection-start-column="33" selection-end-line="1109" selection-end-column="60" />
+            <state relative-caret-position="0">
+              <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lifecycle_hooks.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts">
+      <file leaf-file-name="children-loader.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/children/children-loader.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="421" column="17" selection-start-line="421" selection-start-column="17" selection-end-line="421" selection-end-column="17" />
+            <state relative-caret-position="36">
+              <caret line="2" column="43" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -95,7 +114,7 @@
       <file leaf-file-name="tree-node-content.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-content.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
+            <state relative-caret-position="288">
               <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
               <folding>
                 <element signature="e#0#173#0" expanded="true" />
@@ -104,23 +123,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="drop-zone.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/drop-zone.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="20" column="150" selection-start-line="20" selection-start-column="150" selection-end-line="20" selection-end-column="150" />
-              <folding>
-                <element signature="e#0#57#0" expanded="true" />
-                <marker date="1467320226613" expanded="true" signature="212:293" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="default-tree-node-children-renderer.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/renderer/default-tree-node-children-renderer.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
+            <state relative-caret-position="342">
               <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="32" />
               <folding>
                 <marker date="1466544071979" expanded="true" signature="323:357" ph="{...}" />
@@ -134,14 +140,13 @@
       <file leaf-file-name="default-tree-node-renderer.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/renderer/default-tree-node-renderer.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+            <state relative-caret-position="126">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="e#0#84#0" expanded="true" />
-                <marker date="1467321517621" expanded="true" signature="431:461" ph="{...}" />
-                <marker date="1467321517621" expanded="true" signature="491:576" ph="{...}" />
-                <marker date="1467321517621" expanded="true" signature="616:692" ph="{...}" />
-                <marker date="1467321517621" expanded="true" signature="786:1176" ph="..." />
+                <marker date="1468401822276" expanded="true" signature="437:526" ph="{...}" />
+                <marker date="1468401822276" expanded="true" signature="565:641" ph="{...}" />
+                <marker date="1468401822276" expanded="true" signature="701:1079" ph="..." />
               </folding>
             </state>
           </provider>
@@ -163,8 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/vendor.ts" />
-        <option value="$PROJECT_DIR$/src/app/rxjs-operators.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree-node-children-renderer.component.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/lazy-tree.service.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree-node-content.component.ts" />
@@ -196,7 +199,6 @@
         <option value="$PROJECT_DIR$/src/app/example/lazy-tree.service.ts" />
         <option value="$PROJECT_DIR$/src/app/example/index.ts" />
         <option value="$PROJECT_DIR$/src/app/example/lazy.component.ts" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/default-drag-handle.component.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/register/register.service.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/node-transferable.ts" />
@@ -204,16 +206,19 @@
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/default-dnd.service.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/transferable-node.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/simple-transferable-node.ts" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/index.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-content.component.ts" />
         <option value="$PROJECT_DIR$/src/app/example/example.component.ts" />
         <option value="$PROJECT_DIR$/src/app/example/default.component.ts" />
-        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/drop-zone.component.ts" />
-        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/renderer/default-tree-node-renderer.component.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree/default-tree.service.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/register/default-register.service.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-content-renderer.ts" />
+        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-children-renderer.ts" />
+        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/renderer/default-tree-node-renderer.component.ts" />
         <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node.component.ts" />
+        <option value="$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/drop-zone.component.ts" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -225,9 +230,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1855" />
-    <option name="height" value="951" />
+    <option name="height" value="979" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -254,6 +259,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -410,6 +416,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="key" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular-tree-dnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular2-tree-dnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular2-tree-dnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="id" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -647,7 +679,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -658,6 +689,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path" value="/usr/bin/node" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -747,29 +779,31 @@
       <workItem from="1466538249143" duration="7236000" />
       <workItem from="1466585607399" duration="21000" />
       <workItem from="1466779826076" duration="11439000" />
-      <workItem from="1467318040041" duration="3831000" />
+      <workItem from="1467318040041" duration="4904000" />
+      <workItem from="1468399658947" duration="5145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22527000" />
+    <option name="totallyTimeSpent" value="28745000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="951" extended-state="6" />
-    <editor active="true" />
+    <frame x="65" y="-4" width="1855" height="979" extended-state="6" />
+    <editor active="false" />
     <layout>
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28984717" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282532" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31461987" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23563892" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -931,21 +965,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/children/children-loader.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree/tree.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree/tree.service.ts" />
     <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/children/default-children-loader.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -960,7 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -971,13 +990,6 @@
           <folding>
             <element signature="e#0#41#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="84" column="36" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1009,14 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-children-renderer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/renderer/default-renderer.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1027,30 +1031,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/example/dnd.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/register/register.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/dnd.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/example/dnd.component.ts" />
     <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/default-drag-handle.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1062,29 +1043,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/default-dnd.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="954">
-          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/transferable-node.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/simple-transferable-node.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1095,14 +1057,6 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1133,23 +1087,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-content-renderer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/example/example.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-          <folding>
-            <marker date="1467319751513" expanded="true" signature="220:288" ph="{...}" />
-            <marker date="1467319751513" expanded="true" signature="312:332" ph="{...}" />
-            <marker date="1467319751513" expanded="true" signature="384:438" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1158,7 +1099,7 @@
         <state relative-caret-position="-54">
           <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="false" />
             <marker date="1467319925545" expanded="true" signature="1217:1247" ph="{...}" />
             <marker date="1467319925545" expanded="true" signature="1280:1834" ph="..." />
             <marker date="1467319925545" expanded="true" signature="1350:1821" ph="..." />
@@ -1172,15 +1113,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
+        <state relative-caret-position="7578">
           <caret line="421" column="17" selection-start-line="421" selection-start-column="17" selection-end-line="421" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@angular/core/src/linker/query_list.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@angular/core/src/metadata.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19818">
+          <caret line="1109" column="60" selection-start-line="1109" selection-start-column="33" selection-end-line="1109" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree/default-tree.service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/register/register.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="68" column="46" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/dnd.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/default-dnd.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/simple-transferable-node.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-content.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/renderer/default-tree-node-children-renderer.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
+        <state relative-caret-position="342">
           <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="32" />
           <folding>
             <marker date="1466544071979" expanded="true" signature="323:357" ph="{...}" />
@@ -1190,57 +1200,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-content.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/children/children-loader.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#173#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@angular/core/src/linker/query_list.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@angular/core/src/metadata.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="1109" column="60" selection-start-line="1109" selection-start-column="33" selection-end-line="1109" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/renderer/default-tree-node-renderer.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#84#0" expanded="true" />
-            <marker date="1467321517621" expanded="true" signature="431:461" ph="{...}" />
-            <marker date="1467321517621" expanded="true" signature="491:576" ph="{...}" />
-            <marker date="1467321517621" expanded="true" signature="616:692" ph="{...}" />
-            <marker date="1467321517621" expanded="true" signature="786:1176" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/tree/default-tree.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144">
-          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+        <state relative-caret-position="36">
+          <caret line="2" column="43" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/register/default-register.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
+        <state relative-caret-position="306">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -1248,28 +1218,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/drop-zone.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/renderer/default-tree-node-renderer.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="20" column="150" selection-start-line="20" selection-start-column="150" selection-end-line="20" selection-end-column="150" />
+        <state relative-caret-position="126">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
-            <marker date="1467320226613" expanded="true" signature="212:293" ph="{...}" />
+            <element signature="e#0#84#0" expanded="true" />
+            <marker date="1468401822276" expanded="true" signature="437:526" ph="{...}" />
+            <marker date="1468401822276" expanded="true" signature="565:641" ph="{...}" />
+            <marker date="1468401822276" expanded="true" signature="701:1079" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+        <state relative-caret-position="87">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
           <folding>
             <element signature="e#0#144#0" expanded="true" />
-            <marker date="1467321876609" expanded="true" signature="693:727" ph="{...}" />
-            <marker date="1467321876609" expanded="true" signature="844:1249" ph="..." />
-            <marker date="1467321876609" expanded="true" signature="959:1238" ph="..." />
-            <marker date="1467321876609" expanded="true" signature="1032:1223" ph="..." />
+            <marker date="1468415810024" expanded="true" signature="695:737" ph="{...}" />
+            <marker date="1468415810024" expanded="true" signature="765:804" ph="{...}" />
+            <marker date="1468415810024" expanded="true" signature="947:1352" ph="..." />
+            <marker date="1468415810024" expanded="true" signature="1062:1341" ph="..." />
+            <marker date="1468415810024" expanded="true" signature="1135:1326" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-children-renderer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/node/tree-node-content-renderer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/angular2-tree-dnd/dnd/drop-zone.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+            <marker date="1468416443536" expanded="true" signature="213:349" ph="{...}" />
+            <marker date="1468416443536" expanded="true" signature="405:574" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

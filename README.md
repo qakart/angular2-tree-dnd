@@ -3,7 +3,9 @@ From of the [angular2-webpack-starter](https://github.com/angularclass/angular2-
 
 TODO :
 - dnd
-  - placeholders css depending on dnd state
+  - drop-zone style
+- clear children renderer
+- Tree component should handle lazy loading
 - one tree per page
 - Multi root
 - drag menu

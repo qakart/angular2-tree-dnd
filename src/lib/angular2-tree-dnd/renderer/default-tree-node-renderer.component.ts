@@ -8,16 +8,11 @@ export const RENDERED_FIELD_NAME = "RENDERED_FIELD_NAME";
 @Component({
     selector: 'default-tree-node-renderer',
     styles: [`
-    .tree-node-content {
-        padding: 5px;
-
-    }
     .tree-node-content-label {
         display: inline-block;
-        padding: 5px;
+        /*padding: 5px;*/
         cursor: pointer;
     }
-
     .tree-node-content-label-selected {
         background-color: lightblue;
         border: 1px solid blue;
@@ -25,12 +20,10 @@ export const RENDERED_FIELD_NAME = "RENDERED_FIELD_NAME";
   `],
     directives: [DefaultDragHandle],
     template: `
-    <div class="tree-node-content">
         <button *ngIf="node.getChildrenDataCount() > 0" (click)="node.toggleExpanded()">{{buttonIcon}}</button>
         <default-drag-handle *ngIf="dndService" [node]="node"></default-drag-handle>
         <span class="tree-node-content-label" [class.tree-node-content-label-selected]="selected" (click)="node.toggleSelected()">{{node.data[fieldName]}}</span>
-        {{node.id}}
-    </div>`
+        {{node.id}}`
 })
 export class DefaultTreeNodeRenderer implements TreeNodeContentRenderer, OnInit, OnDestroy {
     @Input() node:TreeNode;

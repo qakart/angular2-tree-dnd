@@ -27,12 +27,15 @@ export const DEFAULT_EXPANDED:string = "DEFAULT_EXPANDED";
     directives: [DropZone, TreeNode, forwardRef(() => TreeNodeContent)],
     styles: [`
 /*TODO renderer service should give us the left margin ?*/
-      .tree-node-children {
-        margin-left: 20px;
-    }
+        .tree-node-children {
+            margin-left: 20px;
+        }
+        .tree-node-content {
+            display: block;
+        }
   `],
     template: `
-    <tree-node-content [node]="_this"></tree-node-content>
+    <tree-node-content class="tree-node-content" [node]="_this"></tree-node-content>
     <div class="tree-node-children">
         <drop-zone *ngIf="dndService" [parent]="_this" [index]="0"></drop-zone>
         <div [hidden]="!expanded">
@@ -51,7 +54,7 @@ export class TreeNode implements TransferableNode, OnInit {
     @Input() index:number;
     // TODO Use a viewQuery ?
     @ViewChildren(TreeNode)
-    private children: QueryList<TreeNode>;
+    private children:QueryList<TreeNode>;
 
     private id:string;
 
